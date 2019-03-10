@@ -13,29 +13,5 @@ body {
     margin-top:30px;
     text-align: center;
 }
-.card-products{
-    margin-bottom:50px;
-    overflow: hidden;
-    position: relative;
-}
-.card {
-    width:32%;
-    margin-right:2%;
-    float:left;
-}
-.card:nth-child(3n+0){
-    margin-right: 0;
-}
-.card-title,
-.card-text{
-    background-color: rgba(150, 140, 140, 0.5);
-    color:#000;
-    text-align: center;
-}
-.card-img-overlay{
-}
-.vermas{
-    display: block;
-    left:10px;
-    bottom:10px;
+
 }
