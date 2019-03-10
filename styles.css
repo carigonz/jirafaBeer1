@@ -1,0 +1,41 @@
+body {
+    background-image: url(http://k32.kn3.net/taringa/3/0/3/4/B/9/KonahsFvZ/D3A.jpg);
+    width:100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.navbar{
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius:7px;
+}
+.jumbotron{
+    background-color: rgba(244, 244, 244, 0.4);
+    margin-top:30px;
+    text-align: center;
+}
+.card-products{
+    margin-bottom:50px;
+    overflow: hidden;
+    position: relative;
+}
+.card {
+    width:32%;
+    margin-right:2%;
+    float:left;
+}
+.card:nth-child(3n+0){
+    margin-right: 0;
+}
+.card-title,
+.card-text{
+    background-color: rgba(150, 140, 140, 0.5);
+    color:#000;
+    text-align: center;
+}
+.card-img-overlay{
+}
+.vermas{
+    display: block;
+    left:10px;
+    bottom:10px;
+}
