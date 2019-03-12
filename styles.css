@@ -12,19 +12,40 @@ body {
     background-color: rgba(244, 244, 244, 0.4);
     margin-top:30px;
     text-align: center;
-
 }
-./* card-columns {
-    @include media-breakpoint-only(lg) {
-      column-count: 6;
-    }
-    @include media-breakpoint-only(xl) {
-      column-count: 2;
-    }
-  } */
-.pruebaflex{
-    display: inline-flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-around;
+.card-products{
+    margin-bottom:50px;
+    overflow: hidden;
+    position: relative;
+}
+.card {
+    width:32%;
+    margin-right:2%;
+    float:left;
+}
+.card:nth-child(3n+0){
+    margin-right: 0;
+}
+.card-title,
+.card-text{
+    background-color: rgba(150, 140, 140, 0.5);
+    color:#000;
+    text-align: center;
+}
+.vermas{
+    display: block;
+    left:10px;
+    bottom:10px;
+}
+
+/* Form Login */
+.login .form-control {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid #fff;
+  border-radius: 0;
+  color: #fff;
+}
+.login .form-control::placeholder{
+  color:#fff;
 }
