@@ -1,8 +1,8 @@
 body {
     background-image: url(http://k32.kn3.net/taringa/3/0/3/4/B/9/KonahsFvZ/D3A.jpg);
     width:100%;
-    background-repeat:no-repeat;
-    background-size: cover;
+/*     background-repeat:no-repeat;
+    background-size: cover; */
 }
 .navbar{
     border-bottom-left-radius: 7px;
