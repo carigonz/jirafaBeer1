@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Prueba sin bootstrap</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+              <div class="topnav" id="myTopnav">
+                  <a href="#home" class="active">Home</a>
+                  <a href="#news">News</a>
+                  <a href="#contact">Contact</a>
+                  <div class="dropdown">
+                      <button class="dropbtn">Dropdown
+                          <i class="fa fa-caret-down"></i>
+                      </button>
+                      <div class="dropdown-content">
+                          <a href="#">Link 1</a>
+                          <a href="#">Link 2</a>
+                          <a href="#">Link 3</a>
+                      </div>
+                  </div>
+                      <a href="#about">About</a>
+                      <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+              </div>
+      </nav>
+    </header>
+    <main>
+      <div class="formulario">
+        <h1>LOGIN</h1>
+        <form action="#" method="post" class="login">
+          <div class="form-group">
+            <label for="InputEmailLogin">Email</label>
+            <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp">
+            <mensaje id="emailHelp" class="sub-text">Nunca daremos tu email a nadie.</mensaje>
+          </div>
+          <div class="form-group">
+            <label for="InputPassLogin">Password</label>
+            <input type="password" class="form-control" id="InputPassLogin" aria-describedby="forgotPass">
+            <mensaje id="forgotPass" class="sub-text"><a href="">Olvidé mi contraseña</a></mensaje>
+          </div>
+          <button type="submit" class="login-primary">Ingresar</button>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="Remember">
+            <label class="form-check-label" for="Remember">Recordarme</label>
+          </div>
+
+        </form>
+        <div class="nota">
+          <h2 class="sub-text">Bases y Condiciones<h2>
+          <p>Beber con moderación. <br>Prohibida su venta a menores de 18 años.</p>
+        </div>
+      </div>
+    </main>
+
+  </body>
+</html>

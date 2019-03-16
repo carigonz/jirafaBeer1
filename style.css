@@ -29,7 +29,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     background-color: #fadf4a;
     overflow: hidden;
   }
-  
+
   /* Style the links inside the navigation bar */
   .topnav a {
     float: left;
@@ -40,27 +40,27 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     text-decoration: none;
     font-size: 17px;
   }
-  
+
   /* Add an active class to highlight the current page */
   .active {
     background-color: #faeb14;
     color: black;
   }
-  
+
   /* Hide the link that should open and close the topnav on small screens */
   .topnav .icon {
     display: none;
   }
-  
+
   /* Dropdown container - needed to position the dropdown content */
   .dropdown {
     float: left;
     overflow: hidden;
   }
-  
+
   /* Style the dropdown button to fit inside the topnav */
   .dropdown .dropbtn {
-    font-size: 17px; 
+    font-size: 17px;
     border: none;
     outline: none;
     color: #000;
@@ -69,7 +69,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     font-family: inherit;
     margin: 0;
   }
-  
+
   /* Style the dropdown content (hidden by default) */
   .dropdown-content {
     display: none;
@@ -79,7 +79,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
   }
-  
+
   /* Style the links inside the dropdown */
   .dropdown-content a {
     float: none;
@@ -89,19 +89,19 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     display: block;
     text-align: left;
   }
-  
+
   /* Add a dark background on topnav links and the dropdown button on hover */
   .topnav a:hover, .dropdown:hover .dropbtn {
     background-color: #f8750a;
     color: white;
   }
-  
+
   /* Add a grey background to dropdown links on hover */
   .dropdown-content a:hover {
     background-color: #ddd;
     color: black;
   }
-  
+
   /* Show the dropdown menu when the user moves the mouse over the dropdown button */
   .dropdown:hover .dropdown-content {
     display: block;
@@ -124,6 +124,100 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
   text-align: center;
 }
 
+/* login form */
+.formulario{
+  background-color: rgba(244, 244, 244, 0.5);
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display: block;
+  text-align: center;
+  width: 425px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+form .login {
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display: block;
+  text-align: center;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+.form-group {
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.login .form-control {
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 2.0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid;
+}
+
+.sub-text {
+  padding: 0;
+  font-size: .9em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nota p{
+  font-size: .5em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form-group mensaje a {
+  color: #ffbb37;
+}
+
+button.login-primary {
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  background-color: #ffbb37;
+  border: 0px;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  max-width: 250px;
+}
+
+div.form-group.form-check {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: solid 0.5px;
+  border-color: rgb(65, 65, 65);
+}
 
   /* media queris navbar */
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
@@ -136,7 +230,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
       display: block;
     }
   }
-  
+
   /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
   @media screen and (max-width: 600px) {
     .topnav.responsive {position: relative;}
