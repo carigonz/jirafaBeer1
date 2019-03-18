@@ -219,6 +219,114 @@ div.form-group.form-check {
   border-color: rgb(65, 65, 65);
 }
 
+
+/* Signup form */
+.formulario_SignUp{
+  background-color: rgba(244, 244, 244, 0.5);
+  border-radius: 20px;
+  color: rgb(33, 37, 41);
+  display: block;
+  text-align: center;
+  width: 425px;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+form .SignUp {
+  color: rgb(33, 37, 41);
+  display: block;
+  text-align: center;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+.form-group {
+  color: rgb(33, 37, 41);
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.SignUp .form-control{
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 2.0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid;
+}
+
+.SignUp .ui-form__input{
+  display: block;
+  width: 100%;
+  text-align: center;
+  line-height: 2.0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: 1px solid;
+}
+
+.sub-text {
+  padding: 0;
+  font-size: .9em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nota p{
+  font-size: .5em;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.Term_Conditions{
+  font-size: 9px;
+  font-weight: 300;
+  text-align: justify;
+}
+
+.form-group mensaje a {
+  color: #ffbb37;
+}
+
+button.SignUp-primary{
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  background-color: #ffbb37;
+  border: 0px;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  max-width: 250px;
+}
+
+div.form-group.form-adult {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-color: rgb(65, 65, 65);
+}
+
+
   /* media queris navbar */
   /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
   @media screen and (max-width: 600px) {
