@@ -13,16 +13,16 @@
         <nav class="navbar">
                 <div class="topnav" id="myTopnav">
                     <a href="#home" class="active">Home</a>
-                    <a href="#news">News</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#news">Nosotros</a>
+                    <a href="#contact">Contacto</a>
                     <div class="dropdown">
-                        <button class="dropbtn">Dropdown 
+                        <button class="dropbtn">¿Donde estamos? 
                             <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
+                            <a href="#">Bares</a>
+                            <a href="#">Barriles</a>
+                            <a href="#">Fabrica</a>
                         </div>
                     </div> 
                         <a href="#about">About</a>
@@ -32,17 +32,66 @@
     </header>
     <main>
     <div class="landing">
-        <img class="logo-landing-img" src="https://st-listas.20minutos.es/images/2013-01/352264/3867113_249px.jpg?1358024790" alt="">
-        <h1 class="logo">girafaBeer</h1>   
-        <!-- <br>
-        <br>
-        <br>
-        <br>
-        <br> -->
+        <div class="bloque-home">
+            <img class="logo-landing-img" src="https://st-listas.20minutos.es/images/2013-01/352264/3867113_249px.jpg?1358024790" alt="">
+            <h1 class="logo">girafaBeer</h1>   
+        </div>
     
     </div>
+    <div class="formulario">
+        <h1>LOGIN</h1>
+        <form action="#" method="post" class="login">
+          <div class="form-group">
+            <label for="InputEmailLogin">Email</label>
+            <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp">
+            <mensaje id="emailHelp" class="sub-text">Nunca daremos tu email a nadie.</mensaje>
+          </div>
+          <div class="form-group">
+            <label for="InputPassLogin">Password</label>
+            <input type="password" class="form-control" id="InputPassLogin" aria-describedby="forgotPass">
+            <mensaje id="forgotPass" class="sub-text"><a href="">Olvidé mi contraseña</a></mensaje>
+          </div>
+          <button type="submit" class="login-primary">Ingresar</button>
+          <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="Remember">
+            <label class="form-check-label" for="Remember">Recordarme</label>
+          </div>
 
-
+        </form>
+        <div class="nota">
+          <h2 class="sub-text">Bases y Condiciones<h2>
+          <p>Beber con moderación. <br>Prohibida su venta a menores de 18 años.</p>
+        </div>
+      </div>
+      <hr>
+      <div class="formulario_SignUp">
+            <h1>REGISTRATE</h1>
+            <h2>Completá tus datos</h2>
+            <form action="#" method="post" class="SignUp">
+              <div class="form-group">
+                <label for="InputSignUpName">Nombre y Apellido</label>
+                <input type="text" class="form-control" id="InputSignUpName">
+              </div>
+              <div class="form-group">
+                <label for="InputEmailSignup">Email</label>
+                <input type="email" class="form-control" id="InputEmailSignup" aria-describedby="emailHelp">
+              </div>
+              <div class="form-group">
+                <label for="InputPassSignUp">Password</label>
+                <input type="password" class="ui-form__input"maxlength="20" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5"  id="InputPassSignUp">
+              </div>
+              <div class="form-group form-adult">
+                <input type="checkbox" class="form-check-Adult" id="Adult">
+                <label class="form-check-label" for="adult">Soy mayor de 18 años</label>
+                <p class="Term_Conditions">Al registrarme, declaro que soy mayor de edad y acepto los Terminos y condiciones y las Políticas de privacidad.</p>
+              </div>
+              <button type="submit" class="SignUp-primary">Registrarme</button>
+            </form>
+            <div class="nota">
+              <h3 class="sub-text">Bases y Condiciones<h3>
+              <p>Beber con moderación. <br>Prohibida su venta a menores de 18 años.</p>
+            </div>
+          </div>
     </main>
     <script>
         function myFunction() {

@@ -112,7 +112,6 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  position: absolute;
 }
 .logo-landing-img{
   border:1px solid #f9f9f9;
@@ -122,6 +121,9 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 }
 .logo{
   text-align: center;
+}
+.bloque-home{
+  display:block;
 }
 
 /* login form */
