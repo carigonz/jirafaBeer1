@@ -77,7 +77,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
   /* Style the dropdown content (hidden by default) */
   .dropdown-content {
     display: none;
-    position: absolute;
+    position: relative;
     background-color: #f9f9f9;
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -178,11 +178,11 @@ form .login {
 .login .form-control {
   display: block;
   width: 100%;
-  text-align: center;
+  text-align: left;
   line-height: 2.0;
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid;
+  border-bottom: #faa914 1px solid;
 }
 
 .sub-text {
@@ -193,7 +193,8 @@ form .login {
 }
 
 .nota p{
-  font-size: .5em;
+  font-size: .6em;
+  color: #636262;
   font-weight: 300;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -201,6 +202,9 @@ form .login {
 
 .form-group mensaje a {
   color: #ffbb37;
+}
+.form-group:hover mensaje a{
+  color: #faeb14;
 }
 
 button.login-primary {
@@ -232,9 +236,23 @@ div.form-group.form-check {
 }
 .refe-signup{
   color: #ffbb37;
+  margin-top: 15px;
+  
 }
 .refe-signup:hover{
-  color: #faeb14;
+  color: #88800b;
+  border: #faeb14 2px solid;
+  border-radius:10px; 
+  padding: 5px 25px;
+  margin-top: 15px;
+}
+#refe-signup{
+  color: #ffbb37;
+  margin-top: 15px;
+  
+}
+#refe-signup:hover{
+  color: #88800b;
 }
   
   /* Signup form */
@@ -276,7 +294,7 @@ form .SignUp {
 .SignUp .form-control{
   display: block;
   width: 100%;
-  text-align: center;
+  text-align: left;
   line-height: 2.0;
   background-color: transparent;
   border: 0;
