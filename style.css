@@ -25,6 +25,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 
 /* NAVBAR */
 /* Add a black background color to the top navigation */
+
 .topnav {
     position: fixed;
     width:100%;
@@ -137,6 +138,10 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 }
 
 /* login form */
+#seccion-login{
+  padding: 50px;
+}
+
 .formulario{
   background-color: rgba(244, 244, 244, 0.5);
   border-radius: 20px;
@@ -146,7 +151,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
   text-align: center;
   width: 370px;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 25px;
   margin-bottom: 10px;
   padding-top: 20px;
   padding-bottom: 50px;
