@@ -144,7 +144,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
   color: rgb(33, 37, 41);
   display: block;
   text-align: center;
-  width: 425px;
+  width: 370px;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 10px;
@@ -230,9 +230,14 @@ div.form-group.form-check {
   border-bottom: solid 0.5px;
   border-color: rgb(65, 65, 65);
 }
-
-
-/* Signup form */
+.refe-signup{
+  color: #ffbb37;
+}
+.refe-signup:hover{
+  color: #faeb14;
+}
+  
+  /* Signup form */
 .formulario_SignUp{
   background-color: rgba(244, 244, 244, 0.5);
   border-radius: 20px;
@@ -356,7 +361,7 @@ div.form-group.form-adult {
 
   /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
   @media screen and (max-width: 600px) {
-    .topnav.responsive {position: relative;}
+    .topnav.responsive {position: fixed;}
     .topnav.responsive a.icon {
       position: absolute;
       right: 0;
