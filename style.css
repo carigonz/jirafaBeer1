@@ -112,7 +112,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     display: block;
   }
 .landing{
-  background-image: url(http://draftmag.com/wp-content/uploads/2016/08/JoeStange_Hops_01.jpg);
+  background-image: url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
   width:100%;
   height: 100vh;
   background-repeat: no-repeat;
@@ -127,6 +127,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 }
 .logo{
   text-align: center;
+  margin-top:60px;
 }
 .bloque-home{
   height: 100vh;;
@@ -138,9 +139,40 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
   align-items: center;
 }
 
+/* seccion nosotros */
+
+#section-nosotros{
+  background-image: url(https://www.cervezaogham.com/wp-content/uploads/2018/10/FERMENTADORES_carrete_intro-web.jpg);
+  width:100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nosotros{
+  background-color: rgba(0,0,0,0.3);
+  width: 70%;
+  padding: 15px;
+  color: #ddd;
+  border-radius: 20px;
+}
+
+.nosotros h2{
+  padding-left: 40px;
+  color: rgb(207, 35, 35);
+  text-transform: uppercase;
+}
+
 /* login form */
-#seccion-login{
+
+#section-login{
   padding: 50px;
+<<<<<<< HEAD
   background-image: url(https://lh3.googleusercontent.com/U-9HN18wOCENXcsS4zniSvK4zW9WxAJMmN_8VyWUh9zh8pKn_qAOY4woc7_8qR_bdi9uKh5Rg9rCkTdkMM2w5RJj2D7WMDZDAguQ6g7WvYwk2YYS_gQAwq2UzftTOmk8q_TS26cgsAjLuJYLQ0Hd5goR__ar5gTDRx-yC3O7EWSbumHhgmi5Jd2voZTfu2lRWVLWgEX4c3b53gL-EkqJQt8PT7Tr4aAXBT-g5GbdhAnpd1snUqc3wMFqjXIJ_RixhQbA3Jlz4wk9qqoDVRJaWBKSHF2HXGHiJAqpPWjYQzkcPNMHyBmNlCOmIt3ENth76MEuil6wjiGX79wTs798HB1bMO43hsxoDVDttqHIzlKBSDHn1K7PK54JFHG-1VPLu7qQDg0P5g7nU7xbLehFHgYyzvEN5CTU10LB4JgBJ1o6mykZX6NvuW0JOHHpHa4YdHGBFpb0jh6jGn0No1O9bDAbhxe-r-kZjlf8Uv-3D_cmdfTndjDROCAHf3XRg4WcAehNFONxKgUVfqkSHpi9RvNMkwkArgTWgzCZBoAplaqeixCoc4heYnpB-aAVaWX6QoguNVKFvsDtBYHWwMA-5luCrkoA5fwvmMr6NFrr7FoIkjEdf1DD8zjsFsXQcHown26PsvurgdvEGlpQ4CCmbmsBbpW4nMGP-RAvjHyoEl511SiDJnb-M-kLYSOBfWG7YlMLXD9qVfgPXMosPHTG0KOk=w1500-h1000-no);
   width:100%;
   height: 100vh;
@@ -151,6 +183,15 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 
 .formulario{
   background-color: rgba(255, 255, 255, 0.95);
+=======
+  background-image: url(http://s1.1zoom.me/b5249/161/Hops_Closeup_Many_Texture_551491_2560x1440.jpg);
+  width:100%;
+  background-size: cover;
+}
+
+.formulario{
+  background-color: rgba(244, 244, 244, 0.7);
+>>>>>>> 1b4005aa33137a6851905aef7dc55451252b7e9b
   border-radius: 20px;
   box-sizing: border-box;
   color: rgb(33, 37, 41);
@@ -268,17 +309,23 @@ div.form-group.form-check {
 }
 
   /* Signup form */
+#section-SignUp{
+    padding: 50px;
+    background-image: url(http://s1.1zoom.me/b5249/161/Hops_Closeup_Many_Texture_551491_2560x1440.jpg);
+    width:100%;
+    background-size: cover;
+  }
+
 .formulario_SignUp{
-  background-color: rgba(244, 244, 244, 0.5);
+  background-color: rgba(244, 244, 244, 0.7);
   border-radius: 20px;
   color: rgb(33, 37, 41);
   display: block;
   text-align: center;
-  width: 425px;
+  width: 370px;
   margin: 0 auto;
-  margin-top: 30px;
   margin-bottom: 10px;
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
