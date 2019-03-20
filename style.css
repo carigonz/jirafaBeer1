@@ -119,10 +119,11 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
   background-size: cover;
 }
 .logo-landing-img{
-  border:1px solid #f9f9f9;
+  border:1px solid transparent;
   border-radius: 60px;
   display: block;
   margin: 0 auto;
+  width: 40vh;
 }
 .logo{
   text-align: center;
@@ -140,10 +141,16 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 /* login form */
 #seccion-login{
   padding: 50px;
+  background-image: url(https://lh3.googleusercontent.com/U-9HN18wOCENXcsS4zniSvK4zW9WxAJMmN_8VyWUh9zh8pKn_qAOY4woc7_8qR_bdi9uKh5Rg9rCkTdkMM2w5RJj2D7WMDZDAguQ6g7WvYwk2YYS_gQAwq2UzftTOmk8q_TS26cgsAjLuJYLQ0Hd5goR__ar5gTDRx-yC3O7EWSbumHhgmi5Jd2voZTfu2lRWVLWgEX4c3b53gL-EkqJQt8PT7Tr4aAXBT-g5GbdhAnpd1snUqc3wMFqjXIJ_RixhQbA3Jlz4wk9qqoDVRJaWBKSHF2HXGHiJAqpPWjYQzkcPNMHyBmNlCOmIt3ENth76MEuil6wjiGX79wTs798HB1bMO43hsxoDVDttqHIzlKBSDHn1K7PK54JFHG-1VPLu7qQDg0P5g7nU7xbLehFHgYyzvEN5CTU10LB4JgBJ1o6mykZX6NvuW0JOHHpHa4YdHGBFpb0jh6jGn0No1O9bDAbhxe-r-kZjlf8Uv-3D_cmdfTndjDROCAHf3XRg4WcAehNFONxKgUVfqkSHpi9RvNMkwkArgTWgzCZBoAplaqeixCoc4heYnpB-aAVaWX6QoguNVKFvsDtBYHWwMA-5luCrkoA5fwvmMr6NFrr7FoIkjEdf1DD8zjsFsXQcHown26PsvurgdvEGlpQ4CCmbmsBbpW4nMGP-RAvjHyoEl511SiDJnb-M-kLYSOBfWG7YlMLXD9qVfgPXMosPHTG0KOk=w1500-h1000-no);
+  width:100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-sizing: border-box;
 }
 
 .formulario{
-  background-color: rgba(244, 244, 244, 0.5);
+  background-color: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   box-sizing: border-box;
   color: rgb(33, 37, 41);
@@ -242,24 +249,24 @@ div.form-group.form-check {
 .refe-signup{
   color: #ffbb37;
   margin-top: 15px;
-  
+
 }
 .refe-signup:hover{
   color: #88800b;
   border: #faeb14 2px solid;
-  border-radius:10px; 
+  border-radius:10px;
   padding: 5px 25px;
   margin-top: 15px;
 }
 #refe-signup{
   color: #ffbb37;
   margin-top: 15px;
-  
+
 }
 #refe-signup:hover{
   color: #88800b;
 }
-  
+
   /* Signup form */
 .formulario_SignUp{
   background-color: rgba(244, 244, 244, 0.5);
