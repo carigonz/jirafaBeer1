@@ -276,36 +276,42 @@ div.form-group.form-check {
 .refe-signup{
   color: #ffbb37;
   margin-top: 15px;
-  
+
 }
 .refe-signup:hover{
   color: #88800b;
   border: #faeb14 2px solid;
-  border-radius:10px; 
+  border-radius:10px;
   padding: 5px 25px;
   margin-top: 15px;
 }
 #refe-signup{
   color: #ffbb37;
   margin-top: 15px;
-  
+
 }
 #refe-signup:hover{
   color: #88800b;
 }
-  
+
   /* Signup form */
+#section-SignUp{
+    padding: 50px;
+    background-image: url(http://s1.1zoom.me/b5249/161/Hops_Closeup_Many_Texture_551491_2560x1440.jpg);
+    width:100%;
+    background-size: cover;
+  }
+
 .formulario_SignUp{
-  background-color: rgba(244, 244, 244, 0.5);
+  background-color: rgba(244, 244, 244, 0.7);
   border-radius: 20px;
   color: rgb(33, 37, 41);
   display: block;
   text-align: center;
-  width: 425px;
+  width: 370px;
   margin: 0 auto;
-  margin-top: 30px;
   margin-bottom: 10px;
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 
