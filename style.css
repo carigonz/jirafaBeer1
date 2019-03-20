@@ -172,14 +172,20 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 
 #section-login{
   padding: 50px;
+  background-image:  url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
+  width:100%;
+  background-size: cover;
+
 <<<<<<< HEAD
   background-image: url(https://lh3.googleusercontent.com/U-9HN18wOCENXcsS4zniSvK4zW9WxAJMmN_8VyWUh9zh8pKn_qAOY4woc7_8qR_bdi9uKh5Rg9rCkTdkMM2w5RJj2D7WMDZDAguQ6g7WvYwk2YYS_gQAwq2UzftTOmk8q_TS26cgsAjLuJYLQ0Hd5goR__ar5gTDRx-yC3O7EWSbumHhgmi5Jd2voZTfu2lRWVLWgEX4c3b53gL-EkqJQt8PT7Tr4aAXBT-g5GbdhAnpd1snUqc3wMFqjXIJ_RixhQbA3Jlz4wk9qqoDVRJaWBKSHF2HXGHiJAqpPWjYQzkcPNMHyBmNlCOmIt3ENth76MEuil6wjiGX79wTs798HB1bMO43hsxoDVDttqHIzlKBSDHn1K7PK54JFHG-1VPLu7qQDg0P5g7nU7xbLehFHgYyzvEN5CTU10LB4JgBJ1o6mykZX6NvuW0JOHHpHa4YdHGBFpb0jh6jGn0No1O9bDAbhxe-r-kZjlf8Uv-3D_cmdfTndjDROCAHf3XRg4WcAehNFONxKgUVfqkSHpi9RvNMkwkArgTWgzCZBoAplaqeixCoc4heYnpB-aAVaWX6QoguNVKFvsDtBYHWwMA-5luCrkoA5fwvmMr6NFrr7FoIkjEdf1DD8zjsFsXQcHown26PsvurgdvEGlpQ4CCmbmsBbpW4nMGP-RAvjHyoEl511SiDJnb-M-kLYSOBfWG7YlMLXD9qVfgPXMosPHTG0KOk=w1500-h1000-no);
   width:100%;
-  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   box-sizing: border-box;
 }
+
+
+
 
 .formulario{
   background-color: rgba(255, 255, 255, 0.95);
@@ -311,21 +317,29 @@ div.form-group.form-check {
   /* Signup form */
 #section-SignUp{
     padding: 50px;
-    background-image: url(http://s1.1zoom.me/b5249/161/Hops_Closeup_Many_Texture_551491_2560x1440.jpg);
+    background-image:  url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
     width:100%;
     background-size: cover;
   }
 
+.logo-form-img{
+  border: 1px solid transparent;
+  border-radius: 60px;
+  display: block;
+  margin: 0 auto;
+  width: 16vh;
+}
+
 .formulario_SignUp{
   background-color: rgba(244, 244, 244, 0.7);
-  border-radius: 20px;
   color: rgb(33, 37, 41);
   display: block;
   text-align: center;
   width: 370px;
   margin: 0 auto;
+  margin-top: 25px;
   margin-bottom: 10px;
-  padding-top: 50px;
+  padding-top: 20px;
   padding-bottom: 50px;
 }
 
@@ -357,7 +371,7 @@ form .SignUp {
   line-height: 2.0;
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid;
+  border-bottom: #faa914 1px solid;
 }
 
 .SignUp .ui-form__input{
@@ -367,7 +381,7 @@ form .SignUp {
   line-height: 2.0;
   background-color: transparent;
   border: 0;
-  border-bottom: 1px solid;
+  border-bottom: #faa914 1px solid  ;
 }
 
 .sub-text {
