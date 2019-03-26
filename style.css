@@ -30,7 +30,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     position: fixed;
     width:100%;
     background-color: #fadf4a;
-    overflow: hidden;
+    height: 54px;
   }
 
   /* Style the links inside the navigation bar */
@@ -442,7 +442,10 @@ div.form-group.form-adult {
 
   /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
   @media screen and (max-width: 600px) {
-    .topnav.responsive {position: fixed;}
+    .topnav.responsive {
+      position: fixed;
+      height: auto;
+    }
     .topnav.responsive a.icon {
       position: absolute;
       right: 0;
