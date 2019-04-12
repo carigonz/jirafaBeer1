@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css?family=Dokdo|Varela+Round');
+
+/* reseteos generales */
+*{
+box-sizing: border-box;
+}
+ul {
+padding: 0;
+margin: 0;
+}
+li {
+list-style: none;
+}
+a {
+text-decoration: none;
+color: #fff;
+}
+body{
+margin:0%;
+height: 100%;
+font-family: 'Varela Round', 'Courier New', Courier, monospace;
+margin:0;
+padding:0;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+/* mobile first */
+
+/* sidenav */
+
+header {
+  color:#eee;
+  width:100%;
+  overflow: hidden;
+}
+
+.btn-home {
+  float: right;
+  border: none; 
+  color: white; 
+  padding: 11.5px 16px;
+  cursor: pointer; 
+}
+
+.btn-home:hover {
+  background-color: #ffbb37;
+}
+input#abrir-cerrar {
+  visibility:hidden;
+  position: absolute;
+  top: -9999px;
+}
+
+
+label[for="abrir-cerrar"] {
+  cursor:pointer;
+  color:#fff;
+  display:inline-block;
+  width:100%;
+  z-index: 5555555;
+}
+
+.abrir{
+  margin: 13.5px 16px;
+  display:inline-block;
+}
+.cerrar {
+  display:none;
+}
+
+#sidebar {
+  width:0;
+}
+
+#contenido {
+  margin-left:0;
+}
+
+input#abrir-cerrar:checked ~ #sidebar {
+  width:60%;
+}
+
+input#abrir-cerrar:checked + label[for="abrir-cerrar"], 
+input#abrir-cerrar:checked ~ #contenido {
+  margin-left:60% !important;
+  transition: margin-left .4s;
+}
+
+
+input#abrir-cerrar:checked + label[for="abrir-cerrar"] .cerrar {
+  display:inline-block;
+  margin: 13.5px 16px;
+}
+
+input#abrir-cerrar:checked + label[for="abrir-cerrar"] .abrir {
+  display:none;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100%;
+  width: 0;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background-color: #eee;
+  overflow-x: hidden;
+  transition: 0.4s;
+  padding: 1rem 0;
+  box-sizing:border-box;
+}
+
+.sidebar .boton-cerrar {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  font-size: 2rem;
+  display: block;
+  padding: 0;
+  line-height: 1.5rem;
+  margin: 0;
+  height: 32px;
+  width: 32px;
+  text-align: center;
+}
+
+.sidebar ul {
+  margin: 4rem auto;
+  display: block;
+  width: 80%;
+  min-width:200px;
+}
+
+.sidebar a {
+  display: block;
+  font-size: 1.2em;
+  color: #852365;
+  text-decoration: none;
+  font-weight: 800;
+  text-transform: capitalize;
+  margin: 10px 0;
+  padding: 20px 10px;
+}
+
+.sidebar a:hover{
+  color:#fff;
+  background-color: #f90;
+
+}
+
+h1 {
+  color:#f90;
+  font-size:180%;
+  font-weight:normal;
+}
+#contenido {
+  transition: margin-left .4s;
+}
+
+.abrir-cerrar {
+  color: #2E88C7;
+  font-size:1rem;   
+}
+.nav-header{
+  z-index: 55555555555555;
+  position:fixed;
+}
+/* landing */
+
+.landing{
+/*  background-image: url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
+  */ 
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.background-video{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+
+}
+.logo-landing{
+  z-index: 55;
+}
+.logo-landing-img{
+  border:1px solid transparent;
+  border-radius: 60px;
+  display: block;
+  margin: 0 auto;
+  z-index: 2;
+  width: 30vh;
+}
+.logo{
+  text-align: center;
+  margin-top:60px;
+}
+.title-princ{
+  font-family: 'Dokdo', 'Varela Round', Courier, monospace;
+  text-align: center;
+  font-size: 2.5em;
+  text-shadow: 0 0 10px #cc301b;
+  padding: 10px 25px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px #faa914;
+  color: #eee;
+  background-color: rgba(211, 155, 56, 0.6)
+}
+.bloque-home{
+  padding-top: 49px;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* seccion nosotros */
+
+#section-nosotros{
+  background-image: url(https://www.cervezaogham.com/wp-content/uploads/2018/10/FERMENTADORES_carrete_intro-web.jpg);
+  width:100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nosotros{
+  background-color: rgba(0,0,0,0.3);
+  width: 70%;
+  padding: 15px;
+  color: #ddd;
+  border-radius: 20px;
+}
+
+.nosotros h1{
+  padding-left: 40px;
+  text-transform: uppercase;
+  box-shadow: none;
+  background-color: transparent;
+  margin: auto;
+}
+
+/* login form */
+/*  la clase aplica a la seccion comentada
+#section-login{
+  background-image: url(http://s1.1zoom.me/b5249/161/Hops_Closeup_Many_Texture_551491_2560x1440.jpg);
+  width:100%;
+  background-size: cover;
+  background-repeat: repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+} */
+
+.formulario{
+  background-color: rgba(244, 244, 244, 0.7);
+  border-radius: 20px;
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display: block;
+  text-align: center;
+  width:70%;
+  max-width: 370px;
+  min-width: 320px;
+  margin: 0 auto;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.tarjetas{
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display: block;
+  text-align: center;
+  margin-top: 0px;
+  padding: 10px;
+}
+
+.form-group {
+  box-sizing: border-box;
+  color: rgb(33, 37, 41);
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  margin-top: 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  text-align: left;
+  line-height: 2.0;
+  background-color: transparent;
+  border: 0;
+  border-bottom: #faa914 1px solid;
+}
+
+.sub-text {
+  padding: 0;
+  font-size: .9em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nota p{
+  font-size: .6em;
+  color: #636262;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.form-group mensaje a {
+  color: #ffbb37;
+}
+.form-group:hover mensaje a{
+  color: #faeb14;
+}
+
+.btn-standard {
+  display: block;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  margin: 0 auto;
+  margin-bottom: 5px;
+  background-color: #ffbb37;
+  border: 0px;
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  max-width: 250px;
+}
+
+div.form-group.form-check {
+  display: block;
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  border-bottom: solid 0.5px;
+  border-color: rgb(65, 65, 65);
+}
+.refe-signup{
+  color: #ffbb37;
+  margin-top: 15px;
+
+}
+.refe-signup:hover{
+  color: #88800b;
+  border: #faeb14 2px solid;
+  border-radius:10px;
+  padding: 5px 25px;
+  margin-top: 15px;
+}
+#refe-signup{
+  color: #ffbb37;
+  margin-top: 15px;
+
+}
+#refe-signup:hover{
+  color: #88800b;
+}
+
+/* footer */
+
+.footer{
+  background-color: #333;
+  height: 20vh;
+  padding: 35px 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.footer a i{
+  padding: 0 15px;
+  display: inline;
+  margin: 0 auto;
+}
+.copy-footer{
+  color: #eee;
+  margin: auto;
+}
+.iconos{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  padding:  0 0 10px 0;
+}
+
+/* section estilos */
+
+
+#estilos{
+  overflow: hidden;
+  height: 100vh;
+  background-image: url(IMG/madera.jpg);
+}
+.class-container{
+  width: 100vw;
+  height: 95vh;
+  float: left;
+  position: relative;
+  top: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  overflow: hidden;
+  background: url(IMG/rubia2.jpg);
+  background-color: rgba(0, 0, 0, 0.2);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 80vw;
+}
+.title {
+  display: inline-block;
+  width: 100%;
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+
+/* form contacto */
+
+#contact{
+  background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,1))
+}
+.contacto{
+  max-width: 520px;
+  
+}

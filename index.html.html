@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>jiraffabBrewHouse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="prueba.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="IMG/iconbeer.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <header class="nav-header">
+        
+        <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
+        <label for="abrir-cerrar"><a href="#home" class="btn-home"><i class="fa fa-home"></i></a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
+        <div id="sidebar" class="sidebar">
+            <ul class="menu">
+                <li><a href="#section-nosotros">nosotros</a></li>
+                <li><a href="#estilos">estilos</a></li>
+                <li><a href="#">delivery</a></li>
+                <li><a href="#">bar</a></li>
+                <li><a href="#">hoola</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+      <div id="contenido">
+        <section class="landing" id="home">
+            <div class="bloque-home">
+                <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video>
+                <div class="logo-landing">
+                    <img class="logo-landing-img" src="IMG\girafa-beer-logo.png" alt="girafa-logo">
+                    <h2 class="title-princ">jirafa BrewHouse</h2>
+                </div>
+            </div>  
+        </section>
+        <section id="section-nosotros">
+            <div class="nosotros">
+                <h1 class="title-princ">Nosotres</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut eveniet ullam necessitatibus! Deserunt ea voluptas animi, dicta explicabo quo unde voluptates, doloremque dolor delectus reiciendis, eum vero ipsam cum minus? Lorem ipsum dolor sit, amet consectetur adipisicing elit. Perspiciatis, quod! Inventore nihil tempore neque odit velit. Expedita neque id veniam cumque voluptate, ex temporibus! Adipisci consequatur ipsam perspiciatis voluptatum dicta. </p>
+            </div>
+        </section>
+        <section id="estilos">
+          <div class="class-container">
+            <h1 class="title-princ">estilos</h1>
+              <div class="card">
+                  <h1>John Doe</h1>
+                  <p class="title">CEO & Founder, Example</p>
+                </div>
+                <div class="card">
+                  <h1>Rubia</h1>
+                  <p class="title">CEO & Founder, Example</p>
+                </div>
+                <div class="card">
+                  <h1>John Doe</h1>
+                  <p class="title">CEO & Founder, Example</p>
+                </div>
+          </div>
+        </section>
+        <section id="contact">
+          <div class="contain-contact">
+            <div class="contacto formulario">
+              <h1>¿dudas? No dudes en contactarnos</h1>
+              <form action="sidenav.html" method="get" class="tarjets">
+                <div class="form-group">
+                  <label for="name">Nombre:</label>
+                  <input class="form-control" type="text" id="name" />
+              </div>
+              <div class="form-group">
+                  <label for="mail">E-mail:</label>
+                  <input class="form-control" type="email" id="mail" />
+              </div>
+              <div class="form-group">
+                  <label for="msg">Mensaje:</label>
+                  <textarea class="form-control" id="msg"></textarea>
+              </div>
+              <div class="button">
+                <button class="btn-standard" type="submit">enviar</button>
+            </div>
+              </form>
+            </div>
+
+            <div class="forms">
+              <div class="formulario">
+                <h1>LOGIN</h1>
+                <form action="#" method="post" class="tarjets ">
+                  <div class="form-group">
+                    <label for="InputEmailLogin">Email</label>
+                    <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp">
+                    <mensaje id="emailHelp" class="sub-text">Nunca daremos tu email a nadie.</mensaje>
+                  </div>
+                  <div class="form-group">
+                    <label for="InputPassLogin">Password</label>
+                    <input type="password" class="form-control" id="InputPassLogin" aria-describedby="forgotPass">
+                    <mensaje id="forgotPass" class="sub-text"><a href="">Olvidé mi contraseña</a></mensaje>
+                  </div>
+                  <button type="submit" class="btn-standard">Ingresar</button>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="Remember">
+                    <label class="form-check-label" for="Remember">Recordarme</label>
+                    <p>¿No tenes cuenta?</p>
+                    <a class="refe-signup" href="SignUpNew.html"><b>REGISTRATE</b></a>
+                  </div>
+                  
+                  <h1>REGISTRATE</h1>
+                  <h2>Completá tus datos</h2>
+                  <form action="#" method="post" class="SignUp">
+                    <div class="form-group">
+                      <label for="InputSignUpName">Nombre y Apellido</label>
+                      <input type="text" class="form-control" id="InputSignUpName">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputEmailSignup">Email</label>
+                      <input type="email" class="form-control" id="InputEmailSignup" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="InputPassSignUp">Password</label>
+                      <input type="password" class="ui-form__input"maxlength="20" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5"  id="InputPassSignUp">
+                    </div>
+                    <div class="form-group form-adult">
+                      <input type="checkbox" class="form-check-Adult" id="Adult">
+                      <label class="form-check-label" for="adult">Soy mayor de 18 años</label>
+                      <p class="Term_Conditions">Al registrarme, declaro que soy mayor de edad y acepto los Terminos y condiciones y las Políticas de privacidad.</p>
+                    </div>
+                    <button type="submit" class="SignUp-primary">Registrarme</button>
+                  </form>
+
+                  
+                </form>
+                <div class="nota">
+                  <h2 class="sub-text">Bases y Condiciones</h2>
+                  <p>Beber con moderación. <br>Prohibida su venta a menores de 18 años.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+        <!-- <section id="section-login">
+            <div class="formulario">
+                <h1>LOGIN</h1>
+                <form action="#" method="post" class="login">
+                  <div class="form-group">
+                    <label for="InputEmailLogin">Email</label>
+                    <input type="email" class="form-control" id="InputEmailLogin" aria-describedby="emailHelp">
+                    <mensaje id="emailHelp" class="sub-text">Nunca daremos tu email a nadie.</mensaje>
+                  </div>
+                  <div class="form-group">
+                    <label for="InputPassLogin">Password</label>
+                    <input type="password" class="form-control" id="InputPassLogin" aria-describedby="forgotPass">
+                    <mensaje id="forgotPass" class="sub-text"><a href="">Olvidé mi contraseña</a></mensaje>
+                  </div>
+                  <button type="submit" class="login-primary">Ingresar</button>
+                  <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="Remember">
+                    <label class="form-check-label" for="Remember">Recordarme</label>
+                    <p>¿No tenes cuenta?</p>
+                    <a class="refe-signup" href="SignUpNew.html"><b>REGISTRATE</b></a>
+                  </div>
+      
+                </form>
+                <div class="nota">
+                  <h2 class="sub-text">Bases y Condiciones</h2>
+                  <p>Beber con moderación. <br>Prohibida su venta a menores de 18 años.</p>
+                </div>
+              </div>
+          </section> -->
+        
+        
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="iconos">
+          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href=""><i class="fab fa-instagram"></i></a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+        </div>
+        <h5 class="copy-footer">Jirafa BrewHouse ® Todos los derechos reservados</h5>
+      </footer>
+</body>
+</html>
