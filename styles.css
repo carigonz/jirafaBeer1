@@ -257,12 +257,19 @@ h1 {
 }
 /* form contacto */
 
-#contact{
+#section-contact{
   background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,1))
 }
 .contacto{
   max-width: 560px;
-  
+}
+label #msg{
+  text-align: left;
+}
+#msg{
+  height: 20vh;
+  border: #faa914 1px solid;
+  border-top: none;
 }
 /*  la clase aplica a la seccion comentada
 #section-login{
@@ -345,7 +352,7 @@ h1 {
   color: #ffbb37;
 }
 .forgot-pass:hover{
-  color: #c25207;
+  color: #aa320d;
 }
 
 .btn-standard {
@@ -381,6 +388,9 @@ h1 {
   font-weight: 300;
   text-align: center;
 
+}
+#section-forms{
+  padding: 30px 0;
 }
 /* footer */
 
@@ -420,7 +430,7 @@ h1 {
 /* section estilos */
 
 
-#estilos{
+#section-estilos{
   overflow: hidden;
   height: 100vh;
   background-image: url(IMG/madera.jpg);
@@ -459,19 +469,6 @@ h1 {
   display: inline-block;
   width: 100%;
   color: grey;
-  font-size: 18px;
-}
-
-button {
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 8px;
-  color: white;
-  background-color: #000;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
   font-size: 18px;
 }
 
