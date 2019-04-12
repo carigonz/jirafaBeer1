@@ -28,6 +28,7 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
 
 .topnav {
     position: fixed;
+    z-index: 55;
     width:100%;
     background-color: #fadf4a;
     height: 54px;
@@ -112,17 +113,29 @@ font-family: 'Varela Round', 'Courier New', Courier, monospace;
     display: block;
   }
 .landing{
-  background-image: url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
-  width:100%;
+ /*  background-image: url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
+  */ 
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
+}
+.background-video{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+
+}
+.logo-landing{
+  z-index: 55;
 }
 .logo-landing-img{
   border:1px solid transparent;
   border-radius: 60px;
   display: block;
   margin: 0 auto;
+  z-index: 2;
   width: 40vh;
 }
 .logo{
