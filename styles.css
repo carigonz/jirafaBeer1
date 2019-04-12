@@ -250,7 +250,20 @@ h1 {
   margin: auto;
 }
 
-/* login form */
+/* forms */
+
+.contain-contact{
+  padding: 30px 0;
+}
+/* form contacto */
+
+#contact{
+  background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,1))
+}
+.contacto{
+  max-width: 560px;
+  
+}
 /*  la clase aplica a la seccion comentada
 #section-login{
   background-image: url(http://s1.1zoom.me/b5249/161/Hops_Closeup_Many_Texture_551491_2560x1440.jpg);
@@ -271,13 +284,16 @@ h1 {
   display: block;
   text-align: center;
   width:70%;
-  max-width: 370px;
+  max-width: 560px;
   min-width: 320px;
   margin: 0 auto;
   margin-top: 25px;
   margin-bottom: 10px;
   padding-top: 20px;
   padding-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
 }
 
 .tarjetas{
@@ -296,11 +312,15 @@ h1 {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
-  margin-top: 5px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 15px;
+  margin: 5px 30px 15px 30px;
   text-align: center;
+}
+.form-adult {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  border-color: rgb(65, 65, 65);
 }
 
 .form-control {
@@ -312,27 +332,20 @@ h1 {
   border: 0;
   border-bottom: #faa914 1px solid;
 }
-
-.sub-text {
+.forgot-pass {
   padding: 0;
-  font-size: .9em;
+  font-size: 1.2em;
+  margin: 15px 0 0 0;
   letter-spacing: 1px;
   text-transform: uppercase;
 }
 
-.nota p{
-  font-size: .6em;
-  color: #636262;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+.forgot-pass{
 
-.form-group mensaje a {
   color: #ffbb37;
 }
-.form-group:hover mensaje a{
-  color: #faeb14;
+.forgot-pass:hover{
+  color: #c25207;
 }
 
 .btn-standard {
@@ -351,44 +364,30 @@ h1 {
   max-width: 250px;
 }
 
-div.form-group.form-check {
+.form-check {
   display: block;
-  width: 200px;
+  width: 100%;
   margin: 0 auto;
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   padding-top: 10px;
   padding-bottom: 20px;
   border-bottom: solid 0.5px;
   border-color: rgb(65, 65, 65);
 }
-.refe-signup{
-  color: #ffbb37;
-  margin-top: 15px;
+
+.term-conditions{
+  font-size: 0.7em;
+  font-weight: 300;
+  text-align: center;
 
 }
-.refe-signup:hover{
-  color: #88800b;
-  border: #faeb14 2px solid;
-  border-radius:10px;
-  padding: 5px 25px;
-  margin-top: 15px;
-}
-#refe-signup{
-  color: #ffbb37;
-  margin-top: 15px;
-
-}
-#refe-signup:hover{
-  color: #88800b;
-}
-
 /* footer */
 
 .footer{
-  background-color: #333;
+  background-color: #eee;
   height: 20vh;
-  padding: 35px 0;
+  padding: 24px 0;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -400,7 +399,7 @@ div.form-group.form-check {
   margin: 0 auto;
 }
 .copy-footer{
-  color: #eee;
+  color: #000;
   margin: auto;
 }
 .iconos{
@@ -410,7 +409,14 @@ div.form-group.form-check {
   flex-direction: row;
   padding:  0 0 10px 0;
 }
-
+.nota{
+  font-size: .6em;
+  color: #636262;
+  font-weight: 300;
+  letter-spacing: 1px;
+  text-align: center;
+  text-transform: uppercase;
+}
 /* section estilos */
 
 
@@ -479,12 +485,3 @@ button:hover, a:hover {
   opacity: 0.7;
 }
 
-/* form contacto */
-
-#contact{
-  background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,1))
-}
-.contacto{
-  max-width: 520px;
-  
-}
