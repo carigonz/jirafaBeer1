@@ -13,7 +13,7 @@ list-style: none;
 }
 a {
 text-decoration: none;
-color: #fff;
+color: #000;
 }
 body{
 margin:0%;
@@ -135,7 +135,7 @@ input#abrir-cerrar:checked + label[for="abrir-cerrar"] .abrir {
 .sidebar a {
   display: block;
   font-size: 1.2em;
-  color: #852365;
+  color: #ffbb37;
   text-decoration: none;
   font-weight: 800;
   text-transform: capitalize;
@@ -236,18 +236,33 @@ h1 {
 
 .nosotros{
   background-color: rgba(0,0,0,0.3);
-  width: 70%;
+  width: 95vw;
+  height: 95vh;
   padding: 15px;
   color: #ddd;
   border-radius: 20px;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .nosotros h1{
-  padding-left: 40px;
+  padding-bottom: 40px;
   text-transform: uppercase;
   box-shadow: none;
   background-color: transparent;
-  margin: auto;
+  margin: 0;
+}
+.nosotros p{
+  max-width: 500px;
+  padding: 20px 20px;
+  margin: 0 auto;
+  text-align: justify;    
+  font-size: 1.2em;
+  color: #fff;
+  background-color: rgba(0,0,0,0.4);  
+  border-radius: 20px;
 }
 
 /* forms */
@@ -432,15 +447,11 @@ label #msg{
 
 #section-estilos{
   overflow: hidden;
-  height: 100vh;
   background-image: url(IMG/madera.jpg);
 }
 .class-container{
   width: 100vw;
-  height: 95vh;
   float: left;
-  position: relative;
-  top: 40px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -451,33 +462,30 @@ label #msg{
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: auto;
-  overflow: hidden;
-  background: url(IMG/rubia2.jpg);
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(238, 238, 238, 0.2);
   background-size: contain;
-  background-position: center;
   background-repeat: no-repeat;
-  text-align: center;
+  text-align: right;
+  margin-bottom: 20px;
+  padding: 20px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   width: 80vw;
+}
+.card h1{
+  text-align: right;
+  padding:0 25px;
+  margin-right: 0;
+  font-weight: normal;
 }
 .title {
   display: inline-block;
   width: 100%;
-  color: grey;
+  color: #efefef;
   font-size: 18px;
 }
-
-a {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-}
-
 button:hover, a:hover {
   opacity: 0.7;
 }
