@@ -515,6 +515,7 @@ button:hover, a:hover {
   overflow: hidden;
   height: auto;
   padding: 0;
+  border-radius: 0 0 20px 20px;
   background-color: rgba(238, 238, 238, 0.8)
 }
 .sidebar ul {
@@ -529,12 +530,22 @@ label[for=abrir-cerrar]{
 
 .sidebar a {
   float:left;
-  font-size: 0.8em;
+  font-size: 1em;
   margin:0;
-  padding: 16px 10px;
+  padding: 14.5px 10px;
 }
 .menu li:nth-last-child(1){
   float: right;
   font-size: 1.2em;
 }
+.btn-home{
+  color: #faa914;
+  font-size: 1.2em;
+  padding:0;
+}
+.sidebar .btn-home{
+  padding: 7.5px 16px;
+}
+
+
 }
