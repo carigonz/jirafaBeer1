@@ -555,10 +555,12 @@ label[for=abrir-cerrar]{
   position: relative;
   top: 30px;
   height: 100vh;
+  flex-direction: row;
 }
 
 .container-styles .title-princ{
-  position: static;
+  position: absolute;
+  top:0;
   display: block;
   flex-direction: row;
 }
@@ -571,17 +573,17 @@ label[for=abrir-cerrar]{
   background-size: contain;
   background-repeat: no-repeat;
   text-align: center;
-  margin-bottom: 20px;
   padding: 20px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
-  width: 30vw;
-  height: 60vh;
+  width:28vw;
+  height: 58.5vh;
+  opacity: 0.8;
 }
 .card h1{
-  text-align: right;
+  text-align: center;
   padding:0 25px;
   margin-right: 0;
   font-weight: normal;
