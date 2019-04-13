@@ -259,7 +259,7 @@ h1 {
   background-color: transparent;
   margin: 0;
 }
-.nosotros p{
+.paragraph-us{
   max-width: 500px;
   padding: 20px 20px;
   margin: 0 auto;
@@ -482,6 +482,7 @@ label #msg{
   flex-wrap: wrap;
   flex-direction: column;
   width: 80vw;
+  min-height: 160px;
 }
 .card h1{
   text-align: right;
@@ -548,7 +549,15 @@ label[for=abrir-cerrar]{
 .sidebar .btn-home{
   padding: 7.5px 16px;
 }
+.sidebar .btn-home:hover{
+  background-color: #f90;
+  color: #eee;
+}
 
+/* landing */
+.logo-landing-img{
+  width: 42vh;
+}
 /* estilos */
 
 .container-styles{
@@ -570,7 +579,7 @@ label[for=abrir-cerrar]{
 .card-desktop {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: rgba(238, 238, 238, 0.2);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   text-align: center;
   padding: 20px;
@@ -578,8 +587,8 @@ label[for=abrir-cerrar]{
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
-  width:28vw;
-  height: 58.5vh;
+  width:210px;
+  height: 320px;
   opacity: 0.8;
 }
 .card h1{
