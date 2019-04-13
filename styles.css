@@ -278,7 +278,7 @@ h1 {
 /* form contacto */
 
 #section-contact{
-  background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,1))
+  background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,0.8))
 }
 .contacto{
   max-width: 560px;
@@ -456,7 +456,7 @@ label #msg{
   overflow: hidden;
   background-image: url(IMG/madera.jpg);
 }
-.class-container{
+.container-styles{
   width: 100vw;
   float: left;
   display: flex;
@@ -466,7 +466,9 @@ label #msg{
   justify-content: space-around;
   align-items: center;
 }
-
+.card-desktop{
+  display: none;
+}
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   background-color: rgba(238, 238, 238, 0.2);
@@ -515,7 +517,7 @@ button:hover, a:hover {
   overflow: hidden;
   height: auto;
   padding: 0;
-  border-radius: 0 0 20px 20px;
+  border-radius: 0 0 10px 10px;
   background-color: rgba(238, 238, 238, 0.8)
 }
 .sidebar ul {
@@ -547,5 +549,47 @@ label[for=abrir-cerrar]{
   padding: 7.5px 16px;
 }
 
+/* estilos */
 
+.container-styles{
+  position: relative;
+  top: 30px;
+  height: 100vh;
+}
+
+.container-styles .title-princ{
+  position: static;
+  display: block;
+  flex-direction: row;
+}
+.card{
+  display: none;
+}
+.card-desktop {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  background-color: rgba(238, 238, 238, 0.2);
+  background-size: contain;
+  background-repeat: no-repeat;
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 30vw;
+  height: 60vh;
+}
+.card h1{
+  text-align: right;
+  padding:0 25px;
+  margin-right: 0;
+  font-weight: normal;
+}
+.title {
+  display: block;
+  width: 100%;
+  color: #efefef;
+  font-size: 18px;
+}
 }
