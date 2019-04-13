@@ -166,6 +166,11 @@ h1 {
   z-index: 55555555555555;
   position:fixed;
 }
+
+.icon-home-navbar{
+  display: none;
+}
+
 /* landing */
 
 .landing{
@@ -348,6 +353,8 @@ label #msg{
 .form-control {
   display: block;
   width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
   text-align: left;
   line-height: 2.0;
   background-color: transparent;
@@ -490,3 +497,44 @@ button:hover, a:hover {
   opacity: 0.7;
 }
 
+@media only screen and (min-width: 768px){
+
+/* navbar */
+
+#sidebar{
+  width: 100%;
+}
+#abrir-cerrar{
+  display: none;
+}
+.abrir, .cerrar{
+  display: none;
+}
+.sidebar {
+  position: fixed;
+  overflow: hidden;
+  height: auto;
+  padding: 0;
+  background-color: rgba(238, 238, 238, 0.8)
+}
+.sidebar ul {
+  margin: 0;
+  width:100%;
+  overflow: hidden;
+  padding-left:30px;
+}
+label[for=abrir-cerrar]{
+  display: none;
+}
+
+.sidebar a {
+  float:left;
+  font-size: 0.8em;
+  margin:0;
+  padding: 16px 10px;
+}
+.menu li:nth-last-child(1){
+  float: right;
+  font-size: 1.2em;
+}
+}
