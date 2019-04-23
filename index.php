@@ -1,6 +1,13 @@
 <?php
 
 require_once "funciones.php";
+
+
+//if (usuarioLogueado()){
+  //redirije a exito.php
+//}
+
+
 $errores=[];
 $lastNameOk="";
 $nameOk="";
@@ -14,7 +21,7 @@ if ($_POST) {
   if (!empty($_POST["register"])) {
     
     $errores = validarRegistro($_POST);
-    //var_dump($errores);
+    var_dump($errores);
     $nameOk = trim($_POST["name"]);
     $lastNameOk = trim($_POST["lastName"]);
     $emailOk = trim($_POST["email"]);
@@ -34,19 +41,24 @@ if ($_POST) {
   if (!empty($_POST['login'])) {
     
     $errores = validarLogin($_POST);
-    //var_dump($errores);
+    var_dump($errores);
 
     if (empty($errores)){
       $usuario= buscarUsuario($_POST["email"]);
       
-      var_dump($usuario);
       //var_dump($usuario);
-      if ($usuario == "La contraseña es incorrecta."){
-        $errorLogin= $usuario;
+      //exit;
+      
+      /* if ($usuario == "La contraseña es incorrecta."){
+        $errorLogin= $usuario; */
         
-      } elseif ($usuario==null){
+      if ($usuario==null){
         $errorLogin = "El mail no se encuentra registrado. Por favor, regístrese haciendo <a href='#section-register'>click acá</a>.";
       }
+
+      //redirijo
+      header ("Location:exito.php");
+      exit;
 
       //session va en otra pagina??
 
@@ -174,8 +186,8 @@ if ($_POST) {
                   <?php endif?>
 
                     <label for="email">Email</label>
-                  <?php if(isset($errores["email"])):?>
-                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                  <?php if(isset($errores["email"]) && (!empty($_POST["login"]))):?>
+                    <input type="email" class="form-control" id="email" style="background-color:rgba(255,0,0,0.2); border-radius:10px" name="email" aria-describedby="emailHelp">
                     <span class="errores"><?= $errores["email"] ?></span>
                   <?php else:?>
                     <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
@@ -183,8 +195,8 @@ if ($_POST) {
                   </div>
                   <div class="form-group">
                     <label for="pass">Password</label>
-                  <?php if(isset($errores["pass"])):?>
-                    <input type="password" class="form-control" id="pass" name="pass" aria-describedby="forgotPass">
+                  <?php if(isset($errores["pass"]) && (!empty($_POST["login"]))):?>
+                    <input type="password" class="form-control" id="pass" style="background-color:rgba(255,0,0,0.2); border-radius:10px" name="pass" aria-describedby="forgotPass">
                     <span class="errores"><?= $errores["pass"] ?></span>
                     <p><a class="forgot-pass" href="">Olvidé mi contraseña</a></p>
                   <?php else :?>
@@ -207,7 +219,7 @@ if ($_POST) {
                   <?php if (isset($errores["name"])):?>
                     <div class="form-group">
                       <label for="name">Nombre</label>
-                      <input type="text" class="form-control" id="name" name="name">
+                      <input type="text" class="form-control" id="name" name="name" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
                       <span class="errores"><?= $errores["name"] ?></span>
                     </div>
                   <?php else :?>
@@ -219,7 +231,7 @@ if ($_POST) {
                   <?php if (isset($errores["lastName"])):?>
                     <div class="form-group">
                         <label for="lastName">Apellido</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName">
+                        <input type="text" class="form-control" id="lastName" name="lastName" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
                         <span class="errores"><?= $errores["lastName"] ?></span>
                     </div>
                   <?php else: ?>
@@ -250,10 +262,10 @@ if ($_POST) {
                   <?php endif?>
                     </div>
 
-                  <?php if(isset($errores["email"])):?>
+                  <?php if(isset($errores["email"]) && (!empty($_POST["register"]))):?>
                     <div class="form-group">
                       <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
                       <span class="errores"><?= $errores["email"] ?></span>
                     </div>
                   <?php else:?>
@@ -262,15 +274,15 @@ if ($_POST) {
                       <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?= $emailOk?>">
                     </div>
                   <?php endif?>
-                  <?php if(isset($errores["pass"]) && (!empty($_POST['registro']))):?>
+                  <?php if(isset($errores["pass"]) && (!empty($_POST["register"]))):?>
                     <div class="form-group">
                       <label for="pass">Contraseña</label>
-                      <input type="password" class="form-control" id="pass" name="pass" maxlength="20" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
+                      <input type="password" class="form-control" id="pass" name="pass" maxlength="20" style="background-color:rgba(255,0,0,0.2); border-radius:10px" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
                       <span class="errores"><?= $errores["pass"] ?></span>
                     </div>
                     <div class="form-group">
                       <label for="pass2">Repetí la contraseña</label>
-                      <input type="password" class="form-control" id="pass2" name="pass2" maxlength="20" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
+                      <input type="password" class="form-control" id="pass2" name="pass2" maxlength="20" style="background-color:rgba(255,0,0,0.2); border-radius:10px" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
                       <span class="errores"><?= $errores["pass"] ?></span>
                     </div>
                   <?php else:?>

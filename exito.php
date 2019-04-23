@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 require_once("funciones.php");
 
 //$_SESSION["name"]=$usuario["name"];

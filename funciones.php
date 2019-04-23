@@ -55,7 +55,7 @@ function actualizarRegistro($datos){
   if (isset($datos["name"])){
     if (strlen($datos["name"])==0){
       $errores["name"]="El campo no puede estar vacío.";
-    }elseif (preg_match("^[a-z[:space:]]*$^",$_POST['name'])===false){
+    }elseif (preg_match("/^[0-9]+$^/",$_POST['name'])){
       $errores["name"] = "El nombre no puede contener números.";
     }
   }
@@ -64,6 +64,7 @@ function actualizarRegistro($datos){
   if (isset($datos["lastName"])){
     if(strlen($datos["lastName"]) == 0){
     $errores["lastName"] = "Campo obligatorio.";
+    //la expresion regular no anda
     } elseif(preg_match("^[a-z[:space:]]*$^",$_POST['name'])===false){
     $errores["lastName"] = "El nombre no puede contener números.";
     }
@@ -127,32 +128,25 @@ function validarLogin($datos){
   } elseif (!filter_var($datosFinales["email"],FILTER_VALIDATE_EMAIL)) {
     $errores["email"]="Ingrese un email válido.";
   } elseif (!existeElUsuario($datosFinales["email"])){
-    $errores["email"]="El mail no existe.";
+    $errores["email"]="El email no existe.";
   }
 
   //pass
   if(strlen($datosFinales["pass"])==0){
     $errores["pass"]="Campo obligatorio.";
-  }  else{
-      $usuario=buscarUsuario($datosFinales["email"]);
-      if (!password_verify($datosFinales["pass"], $usuario["pass"])){
-        $errores["pass"]= "La contraseña es incorrecta.";
-      }
-  //falta validar que email y pass coincidan con usuario
-  //$usuarios=file_get_contents("db.json");
-  //$array=json_decode($json,true);
-
-  //foreach ($array["usuarios"] as $key => $value) {
-    
+  }  
+  $usuario=buscarUsuario($datosFinales["email"]);
+  if (!password_verify($datosFinales["pass"], $usuario["pass"])){
+    $errores["pass"]= "La contraseña es incorrecta.";
   }
-
+  
   return $errores;
 }
 
 
 function buscarUsuario($email){
   if (!file_exists("db.json")){
-    $jsons="";
+    $json="";
   } else{
     $json=file_get_contents("db.json");
   }
@@ -161,9 +155,9 @@ function buscarUsuario($email){
   }
   $array=json_decode($json,true);
 
-  foreach ($array["usuarios"] as $position => $value){
+  foreach ($array["usuarios"] as $position){
     if($position["email"] ==$email){
-      return $usuario;
+      return $position;
     }
   }
    return null;
@@ -207,7 +201,7 @@ function guardarUsuario($user){
 
 }
 
-function buscarPorEmail($email){
+/* function buscarPorEmail($email){
   if(!file_exists("db.json")){
     $usuarios="";
   } else{
@@ -221,14 +215,15 @@ function buscarPorEmail($email){
   //$array corresponde a un array asociativo puesto que en caso de querer guardar alguna otra informacion en el archivo json tengo todos los usuarios en la posicion $usuarios de mi json
     foreach ($array["usuarios"] as $usuario) {
       if ($email==$usuario["email"]){
+        var_dump($usuario);
         return $usuario;
       }
+      return "La contraseña es incorrecta.";
     }
-    return null;
-}
+} */
 
 function existeElUsuario($email){
-  return buscarPorEmail($email)!==null;
+  return buscarUsuario($email)!==null;
 }
 
 ?>
