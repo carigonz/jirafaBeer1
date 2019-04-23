@@ -392,6 +392,13 @@ label #msg{
   width: 100%;
   max-width: 250px;
 }
+.errores{
+  color:#e61010;
+  font-size: 0.8em;
+  text-align: left;
+  display: block;
+  padding-left: 11%;
+}
 
 .form-check {
   display: block;
