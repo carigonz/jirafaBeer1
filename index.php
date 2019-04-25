@@ -3,11 +3,6 @@
 require_once "funciones.php";
 
 
-//if (usuarioLogueado()){
-  //redirije a exito.php
-//}
-
-
 $errores=[];
 $lastNameOk="";
 $nameOk="";
@@ -19,7 +14,7 @@ var_dump($_POST);
 echo "<br>";
 if ($_POST) {
   if (!empty($_POST["register"])) {
-    
+
     $errores = validarRegistro($_POST);
     var_dump($errores);
     $nameOk = trim($_POST["name"]);
@@ -32,26 +27,26 @@ if ($_POST) {
         $usuario=armarUsuario($_POST);
         $guardarUsuario=guardarUsuario($usuario);
         // var_dump($guardarUsuario);
-        //exit; 
+        //exit;
       }else{
         $usuarioExistente = "El usuario ya se encuentra registrado.";
       }
-    }   
+    }
   }
   if (!empty($_POST['login'])) {
-    
+
     $errores = validarLogin($_POST);
     var_dump($errores);
 
     if (empty($errores)){
       $usuario= buscarUsuario($_POST["email"]);
-      
+
       //var_dump($usuario);
       //exit;
-      
+
       /* if ($usuario == "La contraseña es incorrecta."){
         $errorLogin= $usuario; */
-        
+
       if ($usuario==null){
         $errorLogin = "El mail no se encuentra registrado. Por favor, regístrese haciendo <a href='#section-register'>click acá</a>.";
       }
@@ -73,7 +68,7 @@ if ($_POST) {
 
 
     }
-    
+
   }
 
 }
@@ -93,7 +88,7 @@ if ($_POST) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- <header class="nav-header"> 
+    <!-- <header class="nav-header">
         <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
         <label for="abrir-cerrar"><a href="#home" class="btn-home"><i class="fa fa-home"></i></a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
         <div id="sidebar" class="sidebar">
@@ -115,13 +110,13 @@ if ($_POST) {
                     <img class="logo-landing-img" src="IMG\girafa-beer-logo.png" alt="girafa-logo">
                     <h2 class="title-princ">jirafa BrewHouse</h2>
                 </div>
-            </div>  
+            </div>
         </section>
         <section id="section-nosotros">
-            <div class="nosotros">  
+            <div class="nosotros">
                 <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <em>cerveza de garage</em>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
                 <!-- <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p> -->
-                
+
               </div>
         </section>
         <section id="section-estilos">
@@ -254,7 +249,7 @@ if ($_POST) {
                     <?php endif?>
                     <?php if (isset($_POST["gender"]) && $_POST["gender"] == "other"): ?>
                       <input type="radio" name="gender" value="other" ckecked>Prefiero no decirlo
-                    <?php else:?>                      
+                    <?php else:?>
                       <input type="radio" name="gender" value="other">Prefiero no decirlo
                     <?php endif?>
                     <?php if(isset($errores["gender"])):?>
@@ -323,8 +318,8 @@ if ($_POST) {
         </div>
         <p class="nota">Beber con moderación. Prohibida su venta a menores de 18 años.</p>
         <h5 class="copy-footer">Jirafa BrewHouse ® Todos los derechos reservados</h5>
-    
-        
+
+
       </footer>
   </body>
 </html>
