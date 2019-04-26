@@ -74,6 +74,30 @@ if ($_POST) {
 }
 ?>
 
+<?php
+$estilos = [
+  0 => [
+    "id" => 1,
+    "estilo" => "Rubia",
+    "descripcion" => "IPA's o Blonde, muy suaves o muy power.",
+    "imagen" => "rubia2.jpg"
+  ],
+  1 => [
+    "id" => 2,
+    "estilo" => "Negra",
+    "descripcion" => "Stout, porter, mucho aroma y sabor.",
+    "imagen" => "IMG/negra2.jpg"
+  ],
+  2 => [
+    "id" => 3,
+    "estilo" => "Roja",
+    "descripcion" => "Cervezas maltosas, agradables al paladar",
+    "imagen" => "IMG/roja.jpg"
+  ],
+];
+
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -120,59 +144,34 @@ if ($_POST) {
 
               </div>
         </section>
+
         <section id="section-estilos">
-          <div class="container-styles">
-            <h1 class="title-princ">estilos</h1>
-              <div style="background-image:url(IMG/rubia2.jpg)" class="card">
-                  <h1>Rubia</h1>
-                  <p class="title">IPA's o Blonde, muy suaves o muy power.</p>
-                </div>
-                <div style="background-image:url(IMG/negra2.jpg)" class="card">
-                  <h1>Negra</h1>
-                  <p class="title">Stout, porter, mucho aroma y sabor.</p>
-                </div>
-                <div style="background-image:url(IMG/roja2.jpg)" class="card">
-                  <h1>Roja</h1>
-                  <p class="title">Cervezas maltosas, agradables al paladar</p>
-                </div>
-                    <!-- cards desktop -->
-                <div style="background-image:url(IMG/rubia.jpg);alt:cerveza rubia" class="card-desktop">
-                  <h1>Rubia</h1>
-                  <p class="title">IPA's o Blonde, muy suaves o muy power.</p>
-                </div>
-                <div style="background-image:url(IMG/negra.jpg)" class="card-desktop">
-                  <h1>Negra</h1>
-                  <p class="title">Stout, porter, mucho aroma y sabor.</p>
-                </div>
-                <div style="background-image:url(IMG/roja.jpg)" class="card-desktop">
-                  <h1>Roja</h1>
-                  <p class="title">Cervezas maltosas, agradables al paladar</p>
-                </div>
-          </div>
+          <?php foreach($estilos as $estilo => $datos): ?>
+                  <!--<h1 class="title-princ">estilos</h1>-->
+          <article class="product">
+            <div class="photo-container">
+              <img class="card" src="IMG/<?= $datos["imagen"] ?>">
+            </div>
+            <h1><?= $datos["estilo"] ?></h1>
+            <p class="title"><?= $datos["descripcion"]?></p>
+          </article>
+          <article class="product">
+            <div>
+              <img class="card" src="IMG/<?= $datos["imagen"] ?>">
+            </div>
+            <h1><?= $datos["estilo"] ?></h1>
+            <p class="title"><?= $datos["descripcion"]?></p>
+          </article>
+          <article class="product">
+            <div>
+              <img class="card" src="IMG/<?= $datos["imagen"] ?>">
+            </div>
+            <h1><?= $datos["estilo"] ?></h1>
+            <p class="title"><?= $datos["descripcion"]?></p>
+          </article>
+          <?php endforeach ?>
         </section>
 
-        <!--<section id="section-contact">
-          <div class="contain-contact">
-            <div class="contacto formulario">
-              <h1>¿JirafaBeer en tu evento? Contactanos</h1>
-              <form action="#" method="get" class="tarjets">
-                <div class="form-group">
-                  <label for="name">Nombre:</label>
-                  <input class="form-control" type="text" id="name" />
-              </div>
-              <div class="form-group">
-                  <label for="mail">E-mail:</label>
-                  <input class="form-control" type="email" id="mail" />
-              </div>
-              <div class="form-group">
-                  <label for="msg">Mensaje:</label>
-                  <textarea class="form-control" id="msg"></textarea>
-              </div>
-              <div class="button">
-                <button class="btn-standard" type="submit">enviar</button>
-            </div>
-              </form>
-            </div>-->
 
             <div id="section-forms">
               <div class="formulario">
@@ -309,7 +308,7 @@ if ($_POST) {
                   </form>
               </div>
             </div>
-          </div>
+
         </section>
         </div>
       </main>
