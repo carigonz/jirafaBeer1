@@ -544,13 +544,19 @@ label[for=abrir-cerrar]{
   margin:0;
   padding: 14.5px 10px;
 }
+
+#welcome {
+  color: #f90;
+  float:left;
+  padding: 14.5px 16px;
+  margin: 0 auto;
+}
+
 .menu li:nth-last-child(1){
   float: right;
-  font-size: 1.2em;
 }
 .btn-home{
   color: #faa914;
-  font-size: 1.2em;
   padding:0;
 }
 .sidebar .btn-home{
@@ -560,6 +566,7 @@ label[for=abrir-cerrar]{
   background-color: #f90;
   color: #eee;
 }
+
 
 /* landing */
 .logo-landing-img{

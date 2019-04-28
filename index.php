@@ -9,12 +9,24 @@ $nameOk="";
 $emailOk="";
 $usuarioExistente="";
 $errorLogin=false;
+$logout= "logout";
+$login="login";
 
 //var_dump($_POST);
-echo "<br>";
+//echo "<br>";
+if (usuarioLogueado()){
+  $usuario=traerUsuarioLogueado();
+  //la funcion traer usuario logueado anda medio mal
+  //$usuario = $_SESSION["email"]; //sigo sin saber porque esta el array de usuario adentro de una posicion email dentro de session
+  $lastNameOk=$usuario["lastName"];
+  $nameOk=$usuario["name"];
+  $emailOk=$usuario["email"];
+}
+
+
 if ($_POST) {
   if (!empty($_POST["register"])) {
-
+    
     $errores = validarRegistro($_POST);
     //var_dump($errores);
     $nameOk = trim($_POST["name"]);
@@ -27,51 +39,56 @@ if ($_POST) {
         $usuario=armarUsuario($_POST);
         $guardarUsuario=guardarUsuario($usuario);
         // var_dump($guardarUsuario);
-        //exit;
-      }else{
-        $usuarioExistente = "El usuario ya se encuentra registrado.";
-      }
+        //exit; 
+
+        //logueo al usuario
+        $usuario= buscarUsuario($_POST["email"]);
+        loguearUsuario($_POST["email"]);
+        var_dump($usuario);
+        //redirijo
+        header("Location:exito.php");
+        exit;
+        }else{
+          $usuarioExistente = "El usuario ya se encuentra registrado.";
+        }
+
     }
   }
   if (!empty($_POST['login'])) {
-
+    
     $errores = validarLogin($_POST);
     //var_dump($errores);
 
     if (empty($errores)){
       $usuario= buscarUsuario($_POST["email"]);
-
+      //var_dump($usuario);
+      //var_dump($_POST);
       //var_dump($usuario);
       //exit;
-
-      /* if ($usuario == "La contraseña es incorrecta."){
-        $errorLogin= $usuario; */
-
+      
       if ($usuario==null){
         $errorLogin = "El mail no se encuentra registrado. Por favor, regístrese haciendo <a href='#section-register'>click acá</a>.";
       }
+      //logeo al usuario
+      loguearUsuario($usuario["email"]);
+
+      //seteo de cookies
+
+      if (isset($_POST["remember"])){
+        setCookies($usuario);
+      }
 
       //redirijo
-      header ("Location:exito.php");
+
+      header("Location:exito.php");
       exit;
-
-      //session va en otra pagina??
-
-      //session_start();
-      //$_SESSION["name"]=$usuario["name"];
-      //$_SESSION["email"]=$usuario["email"];
-      //$_SESSION["gender"]=$usuario["gender"];
-      //$_SESSION["lastName"]=$usuario["lastName"];
-
-      //header("Location:exito.php");
-
-
-
     }
-
+    
   }
 
 }
+
+
 ?>
 
 
@@ -88,7 +105,7 @@ if ($_POST) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header class="nav-header">
+    <header class="nav-header"> 
         <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
         <label for="abrir-cerrar"><a href="#home" class="btn-home"><i class="fa fa-home"></i></a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
         <div id="sidebar" class="sidebar">
@@ -96,28 +113,32 @@ if ($_POST) {
                 <li><a href="#section-nosotros">nosotros</a></li>
                 <li><a href="#section-estilos">estilos</a></li>
                 <li><a href="contact.php">contacto</a></li>
-                <li><a href="#section-forms">login</a></li>
-                <li><a class="btn-home" href="index.php"><i class="fa fa-home btn-home"></i></a></li>
+                <li><a href="index.php">home</a></li><!-- 
+                <li><a class="btn-home" href="#home"><i class="fa fa-home btn-home"></i></a></li> -->
+                <?php if (usuariologueado()):?>
+                <li><span style="padding: 14.5px 16px; color: #f90; float:left" >Bienvenide, <?= $nameOk?> !</span><a href="logout.php"><?= $logout?>
+                  <?php else:?>
+                  <li><a href="#section-forms"><?= $login?>
+                  <?php endif?></a></li>
             </ul>
         </div>
     </header>
-
     <main>
       <div id="contenido">
         <section class="landing" id="home">
             <div class="bloque-home">
-                 <!-- <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video> -->
+                <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video>
                 <div class="logo-landing">
                     <img class="logo-landing-img" src="IMG\girafa-beer-logo.png" alt="girafa-logo">
                     <h2 class="title-princ">jirafa BrewHouse</h2>
                 </div>
-            </div>
+            </div>  
         </section>
         <section id="section-nosotros">
-            <div class="nosotros">
+            <div class="nosotros">  
                 <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <em>cerveza de garage</em>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
                 <!-- <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p> -->
-
+                
               </div>
         </section>
         <section id="section-estilos">
@@ -150,10 +171,9 @@ if ($_POST) {
                 </div>
           </div>
         </section>
-
-        <!--<section id="section-contact">
+        <section id="section-contact">
           <div class="contain-contact">
-            <div class="contacto formulario">
+            <!-- <div class="contacto formulario">
               <h1>¿JirafaBeer en tu evento? Contactanos</h1>
               <form action="#" method="get" class="tarjets">
                 <div class="form-group">
@@ -172,8 +192,7 @@ if ($_POST) {
                 <button class="btn-standard" type="submit">enviar</button>
             </div>
               </form>
-            </div>-->
-
+            </div> -->
             <div id="section-forms">
               <div class="formulario">
                 <h1>LOGIN</h1>
@@ -204,7 +223,7 @@ if ($_POST) {
                   </div>
                   <button type="submit" class="btn-standard" value="login" name="login">Ingresar</button>
                   <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="remember">
+                    <input type="checkbox" value="remember" class="form-check-input" name="remember" id="remember">
                     <label class="form-check-label" for="remember">Recordarme</label>
                   </div>
                 </form>
@@ -252,7 +271,7 @@ if ($_POST) {
                     <?php endif?>
                     <?php if (isset($_POST["gender"]) && $_POST["gender"] == "other"): ?>
                       <input type="radio" name="gender" value="other" ckecked>Prefiero no decirlo
-                    <?php else:?>
+                    <?php else:?>                      
                       <input type="radio" name="gender" value="other">Prefiero no decirlo
                     <?php endif?>
                     <?php if(isset($errores["gender"])):?>
@@ -321,8 +340,8 @@ if ($_POST) {
         </div>
         <p class="nota">Beber con moderación. Prohibida su venta a menores de 18 años.</p>
         <h5 class="copy-footer">Jirafa BrewHouse ® Todos los derechos reservados</h5>
-
-
+    
+        
       </footer>
   </body>
 </html>

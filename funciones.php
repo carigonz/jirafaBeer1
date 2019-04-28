@@ -1,5 +1,7 @@
 <?php
 
+
+session_start();
 //echo "soy funciones.php";
 
 function validarRegistro($datos){
@@ -9,15 +11,15 @@ function validarRegistro($datos){
   //nombre
   if(strlen($datos["name"]) == 0){
     $errores["name"] = "Campo obligatorio.";
-  } elseif (ctype_alpha($datos["name"]) == false){
+  } elseif (!preg_match('/^[\p{L} ]+$/u',$datos["name"])){
     $errores["name"] = "El nombre no puede contener números.";
   }
 
   //apellido
   if(strlen($datos["lastName"]) == 0){
     $errores["lastName"] = "Campo obligatorio.";
-  } elseif(ctype_alpha($datos["lastName"])==false){
-    $errores["lastName"] = "El nombre no puede contener números.";
+  } elseif(!preg_match('/^[\p{L} ]+$/u',$datos["lastName"])){
+    $errores["lastName"] = "El apellido no puede contener números.";
   }
 
   //gender
@@ -55,7 +57,7 @@ function actualizarRegistro($datos){
   if (isset($datos["name"])){
     if (strlen($datos["name"])==0){
       $errores["name"]="El campo no puede estar vacío.";
-    }elseif (preg_match("/^[0-9]+$^/",$_POST['name'])){
+    }elseif (!preg_match('/^[\p{L} ]+$/u',$datos["name"])){
       $errores["name"] = "El nombre no puede contener números.";
     }
   }
@@ -65,8 +67,8 @@ function actualizarRegistro($datos){
     if(strlen($datos["lastName"]) == 0){
     $errores["lastName"] = "Campo obligatorio.";
     //la expresion regular no anda
-    } elseif(preg_match("^[a-z[:space:]]*$^",$_POST['name'])===false){
-    $errores["lastName"] = "El nombre no puede contener números.";
+    } elseif(!preg_match('/^[\p{L} ]+$/u',$datos["lastName"])){
+    $errores["lastName"] = "El apellido no puede contener números.";
     }
   }
 
@@ -114,37 +116,9 @@ function actualizarRegistro($datos){
 }
 
 
-function validarLogin($datos){
-  $errores =[];
-  $datosFinales=[];
-  //para que sirve $datosFinales??????
-
-  foreach ($datos as $position => $valor){
-    $datosFinales[$position]=trim($valor);
-  }
-  //email
-  if(strlen($datosFinales["email"])==0){
-    $errores["email"]="Campo obligatorio.";
-  } elseif (!filter_var($datosFinales["email"],FILTER_VALIDATE_EMAIL)) {
-    $errores["email"]="Ingrese un email válido.";
-  } elseif (!existeElUsuario($datosFinales["email"])){
-    $errores["email"]="El email no existe.";
-  }
-
-  //pass
-  if(strlen($datosFinales["pass"])==0){
-    $errores["pass"]="Campo obligatorio.";
-  }  
-  $usuario=buscarUsuario($datosFinales["email"]);
-  if (!password_verify($datosFinales["pass"], $usuario["pass"])){
-    $errores["pass"]= "La contraseña es incorrecta.";
-  }
-  
-  return $errores;
-}
-
 
 function buscarUsuario($email){
+  //var_dump($email);
   if (!file_exists("db.json")){
     $json="";
   } else{
@@ -155,14 +129,15 @@ function buscarUsuario($email){
   }
   $array=json_decode($json,true);
 
+  //var_dump($array);
   foreach ($array["usuarios"] as $position){
-    if($position["email"] ==$email){
+    if($position["email"] == $email){
+      //var_dump($position);
       return $position;
     }
   }
-   return null;
+  return null;
 }
-
 
 
 function lastID(){
@@ -185,9 +160,9 @@ function armarUsuario($array){
     "name"=>trim($array["name"]),
     "lastName"=>trim($array["lastName"]),
     "email"=>trim($array["email"]),
+    "gender"=>$array["gender"],
     "pass"=>password_hash($array["pass"],PASSWORD_DEFAULT)
   ];
-
 }
 
 function guardarUsuario($user){
@@ -201,29 +176,63 @@ function guardarUsuario($user){
 
 }
 
-/* function buscarPorEmail($email){
-  if(!file_exists("db.json")){
-    $usuarios="";
-  } else{
-    $usuarios=file_get_contents("db.json");
-  }
-
-  if ($usuarios==""){
-    return null;
-  }
-    $array=json_decode($usuarios,true);
-  //$array corresponde a un array asociativo puesto que en caso de querer guardar alguna otra informacion en el archivo json tengo todos los usuarios en la posicion $usuarios de mi json
-    foreach ($array["usuarios"] as $usuario) {
-      if ($email==$usuario["email"]){
-        var_dump($usuario);
-        return $usuario;
-      }
-      return "La contraseña es incorrecta.";
-    }
-} */
 
 function existeElUsuario($email){
   return buscarUsuario($email)!==null;
+}
+
+
+function validarLogin($datos){
+  $errores =[];
+  $datosFinales=[];
+
+  foreach ($datos as $position => $valor){
+    $datosFinales[$position]=trim($valor);
+  }
+  //email
+  if(strlen($datosFinales["email"])==0){
+    $errores["email"]="Campo obligatorio.";
+  } elseif (!filter_var($datosFinales["email"],FILTER_VALIDATE_EMAIL)) {
+    $errores["email"]="Ingrese un email válido.";
+  } elseif (!existeElUsuario($datosFinales["email"])){
+    $errores["email"]="El email no existe.";
+  }
+
+  //pass
+  if(strlen($datosFinales["pass"])==0){
+    $errores["pass"]="Campo obligatorio.";
+  }  
+  $usuario=buscarUsuario($datosFinales["email"]);
+  if (!password_verify($datosFinales["pass"], $usuario["pass"])){
+    $errores["pass"]= "La contraseña es incorrecta.";
+  }
+  
+
+
+
+  return $errores;
+}
+
+function loguearUsuario($email){
+  $_SESSION["email"]=$email;
+}
+
+
+function usuarioLogueado(){
+  return isset($_SESSION["email"]);
+}
+
+function traerUsuarioLogueado(){
+  if (isset($_SESSION["email"])){
+    return buscarUsuario($_SESSION["email"]);
+  }
+  return false;
+}
+
+function setCookies($usuario){
+  setCookie("name",$usuario["name"],time()+60*60*24*30);
+  setCookie("email",$usuario["email"],time()+60*60*24*30);
+  setCookie("pass",$usuario["pass"],time()+60*60*24*30);
 }
 
 ?>
