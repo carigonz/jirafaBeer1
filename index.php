@@ -88,6 +88,7 @@ if ($_POST) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+    <!-- cabecera -->
     <header class="nav-header">
         <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
         <label for="abrir-cerrar"><a href="#home" class="btn-home"><i class="fa fa-home"></i></a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
@@ -108,8 +109,8 @@ if ($_POST) {
             <div class="bloque-home">
                  <!-- <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video> -->
                 <div class="logo-landing">
-                    <img class="logo-landing-img" src="IMG\girafa-beer-logo.png" alt="girafa-logo">
-                    <h2 class="title-princ">jirafa BrewHouse</h2>
+                    <img class="logo-landing-img" src="IMG\jirafa-brew-house-logo.png" alt="jirafa-logo">
+
                 </div>
             </div>
         </section>
@@ -120,23 +121,47 @@ if ($_POST) {
 
               </div>
         </section>
-        <section id="section-estilos">
-          <div class="container-styles">
-            <h1 class="title-princ">estilos</h1>
-              <div style="background-image:url(IMG/rubia2.jpg)" class="card">
+        <!-- categorias o estilos de cerveza -->
+        <section class="section-estilos" id="section-estilos">
+          <h1 class="title-princ">estilos</h1>
+            <article class="estilo">
+              <div class="photo-container">
+                  <img class="photo" src="IMG/estilo-rubia.jpg" alt="estilo 01">
+              </div>
+              <div class="title">
                   <h1>Rubia</h1>
                   <p class="title">IPA's o Blonde, muy suaves o muy power.</p>
-                </div>
-                <div style="background-image:url(IMG/negra2.jpg)" class="card">
+              </div>
+            </article>
+            <article class="estilo">
+              <div class="photo-container">
+                <img class="photo" src="IMG/estilo-negra.jpg" alt="estilo 02">
+              </div>
+              <div class="title">
                   <h1>Negra</h1>
-                  <p class="title">Stout, porter, mucho aroma y sabor.</p>
-                </div>
-                <div style="background-image:url(IMG/roja2.jpg)" class="card">
+                  <p>Stout, porter, mucho aroma y sabor.</p>
+              </div>
+            </article>
+            <article class="estilo">
+              <div class="photo-container">
+                <img class="photo" src="IMG/estilo-roja.jpg" alt="estilo 03">
+              </div>
+              <div class="title">
                   <h1>Roja</h1>
-                  <p class="title">Cervezas maltosas, agradables al paladar</p>
-                </div>
+                  <p>Cervezas maltosas, agradables al paladar</p>
+              </div>
+            </article>
+            <article class="estilo">
+              <div class="photo-container">
+                <img class="photo" src="IMG/estilo-reserva.jpg" alt="estilo 04">
+              </div>
+              <div class="title">
+                  <h1>Reserva</h1>
+                  <p>Cervezas doradas reserva en barriles de whisky con sabores afrutados.</p>
+              </div>
+            </article>
                     <!-- cards desktop -->
-                <div style="background-image:url(IMG/rubia.jpg);alt:cerveza rubia" class="card-desktop">
+                <!--<div style="background-image:url(IMG/rubia.jpg);alt:cerveza rubia" class="card-desktop">
                   <h1>Rubia</h1>
                   <p class="title">IPA's o Blonde, muy suaves o muy power.</p>
                 </div>
@@ -147,32 +172,9 @@ if ($_POST) {
                 <div style="background-image:url(IMG/roja.jpg)" class="card-desktop">
                   <h1>Roja</h1>
                   <p class="title">Cervezas maltosas, agradables al paladar</p>
-                </div>
-          </div>
-        </section>
+                </div> -->
 
-        <!--<section id="section-contact">
-          <div class="contain-contact">
-            <div class="contacto formulario">
-              <h1>¿JirafaBeer en tu evento? Contactanos</h1>
-              <form action="#" method="get" class="tarjets">
-                <div class="form-group">
-                  <label for="name">Nombre:</label>
-                  <input class="form-control" type="text" id="name" />
-              </div>
-              <div class="form-group">
-                  <label for="mail">E-mail:</label>
-                  <input class="form-control" type="email" id="mail" />
-              </div>
-              <div class="form-group">
-                  <label for="msg">Mensaje:</label>
-                  <textarea class="form-control" id="msg"></textarea>
-              </div>
-              <div class="button">
-                <button class="btn-standard" type="submit">enviar</button>
-            </div>
-              </form>
-            </div>-->
+        </section>
 
             <div id="section-forms">
               <div class="formulario">
@@ -311,7 +313,6 @@ if ($_POST) {
             </div>
           </div>
         </section>
-        </div>
       </main>
       <footer class="footer">
         <div class="iconos">
@@ -324,5 +325,6 @@ if ($_POST) {
 
 
       </footer>
+    </div>
   </body>
 </html>

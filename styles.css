@@ -2,26 +2,31 @@
 
 /* reseteos generales */
 *{
-box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 ul {
-padding: 0;
-margin: 0;
+  padding: 0;
+  margin: 0;
 }
+
 li {
-list-style: none;
+  list-style: none;
 }
+
 a {
-text-decoration: none;
-color: #000;
+  text-decoration: none;
+  color: #000;
 }
+
 body{
-margin:0%;
-height: 100%;
-font-family: 'Varela Round', 'Courier New', Courier, monospace;
-margin:0;
-padding:0;
+  margin:0%;
+  height: 100%;
+  font-family: 'Varela Round', 'Courier New', Courier, monospace;
+  margin:0;
+  padding:0;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
@@ -33,14 +38,15 @@ header {
   color:#eee;
   width:100%;
   overflow: hidden;
+  top: 0px;
 }
 
 .btn-home {
   float: right;
-  border: none; 
-  color: white; 
+  border: none;
+  color: white;
   padding: 11.5px 16px;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 .btn-home:hover {
@@ -74,14 +80,14 @@ label[for="abrir-cerrar"] {
 }
 
 #contenido {
-  margin-left:0;
+  margin: 0 auto;
 }
 
 input#abrir-cerrar:checked ~ #sidebar {
   width:60%;
 }
 
-input#abrir-cerrar:checked + label[for="abrir-cerrar"], 
+input#abrir-cerrar:checked + label[for="abrir-cerrar"],
 input#abrir-cerrar:checked ~ #contenido {
   margin-left:60% !important;
   transition: margin-left .4s;
@@ -129,7 +135,7 @@ input#abrir-cerrar:checked + label[for="abrir-cerrar"] .abrir {
   margin: 4rem auto;
   display: block;
   width: 80%;
-  min-width:200px;
+  min-width:320px;
 }
 
 .sidebar a {
@@ -160,11 +166,12 @@ h1 {
 
 .abrir-cerrar {
   color: #2E88C7;
-  font-size:1rem;   
+  font-size:1rem;
 }
 .nav-header{
   z-index: 55555555555555;
-  position:fixed;
+  position: fixed;
+  background-color: #eee;
 }
 
 .icon-home-navbar{
@@ -175,7 +182,7 @@ h1 {
 
 .landing{
 /*  background-image: url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
-  */ 
+  */
   height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -184,7 +191,7 @@ h1 {
   position: absolute;
   right: 0;
   bottom: 0;
-  min-width: 100%; 
+  min-width: 100%;
   min-height: 100%;
 
 }
@@ -210,9 +217,9 @@ h1 {
   text-shadow: 0 0 10px #cc301b;
   padding: 10px 25px;
   border-radius: 25px;
-  box-shadow: 0 0 25px #faa914;
+  /*box-shadow: 0 0 25px #faa914;*/
   color: #eee;
-  background-color: rgba(211, 155, 56, 0.6)
+  /*background-color: rgba(211, 155, 56, 0.6)*/
 }
 .bloque-home{
   padding-top: 49px;
@@ -263,11 +270,19 @@ h1 {
   max-width: 500px;
   padding: 20px 20px;
   margin: 0 auto;
-  text-align: justify;    
+  text-align: justify;
   font-size: 1.2em;
   color: #fff;
-  background-color: rgba(0,0,0,0.4);  
+  background-color: rgba(0,0,0,0.4);
   border-radius: 20px;
+}
+
+#section-estilos{
+  background-color: rgba(2, 2, 2,1);
+}
+
+article.estilo{
+  padding: 1em;
 }
 
 /* forms */
@@ -456,14 +471,13 @@ label #msg{
   text-align: center;
   text-transform: uppercase;
 }
+
+
 /* section estilos */
 
 
-#section-estilos{
-  overflow: hidden;
-  background-image: url(IMG/madera.jpg);
-}
-.container-styles{
+
+/*.container-styles{
   width: 100vw;
   float: left;
   display: flex;
@@ -472,8 +486,19 @@ label #msg{
   justify-items: center;
   justify-content: space-around;
   align-items: center;
+}*/
+.photo{
+  width: 100%;
 }
-.card-desktop{
+.photo-container{
+  position: relative;
+}
+
+.photo-container img{
+  width: 100%;
+}
+
+/*.card-desktop{
   display: none;
 }
 .card {
@@ -492,11 +517,11 @@ label #msg{
   min-height: 160px;
 }
 .card h1{
-  text-align: right;
-  padding:0 25px;
-  margin-right: 0;
+  text-align: left;
+  padding:0;
   font-weight: normal;
-}
+}*/
+
 .title {
   display: inline-block;
   width: 100%;
@@ -565,21 +590,38 @@ label[for=abrir-cerrar]{
 .logo-landing-img{
   width: 42vh;
 }
+
 /* estilos */
 
-.container-styles{
+.section-estilos{
+  overflow: hidden;
+}
+
+.estilo{
+  width: 48%;
+}
+.estilo:nth-child(odd){
+  float: left;
+}
+.estilo:nth-child(even){
+  float: right;
+}
+
+
+/*.container-styles{ Note: eliminar
   position: relative;
   top: 30px;
   height: 100vh;
   flex-direction: row;
 }
 
-.container-styles .title-princ{
+.container-styles .title-princ{ Note: eliminar
   position: absolute;
   top:0;
   display: block;
   flex-direction: row;
-}
+}*/
+/*
 .card{
   display: none;
 }
@@ -597,7 +639,7 @@ label[for=abrir-cerrar]{
   width:210px;
   height: 320px;
   opacity: 0.8;
-}
+}*/
 .card h1{
   text-align: center;
   padding:0 25px;
