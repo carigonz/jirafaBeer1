@@ -53,6 +53,14 @@
             "email": "hola@hola.com",
             "gender": "masc",
             "pass": "$2y$10$5Dn2wj8tJ\/5tQGuU8WqkeeWBsTgoFbisHAo.pHJySidXvM1V6uNoK"
+        },
+        {
+            "id": 7,
+            "name": "hol",
+            "lastName": "a",
+            "email": "33333@gmail.com",
+            "gender": "other",
+            "pass": "$2y$10$ytMjA4tJvN2fiT\/f6c86HuX9bWmXGiihBGKXb5.5rxe\/Hj4QaIara"
         }
     ]
 }

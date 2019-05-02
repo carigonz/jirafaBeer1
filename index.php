@@ -171,28 +171,8 @@ if ($_POST) {
                 </div>
           </div>
         </section>
-        <section id="section-contact">
-          <div class="contain-contact">
-            <!-- <div class="contacto formulario">
-              <h1>¿JirafaBeer en tu evento? Contactanos</h1>
-              <form action="#" method="get" class="tarjets">
-                <div class="form-group">
-                  <label for="name">Nombre:</label>
-                  <input class="form-control" type="text" id="name" />
-              </div>
-              <div class="form-group">
-                  <label for="mail">E-mail:</label>
-                  <input class="form-control" type="email" id="mail" />
-              </div>
-              <div class="form-group">
-                  <label for="msg">Mensaje:</label>
-                  <textarea class="form-control" id="msg"></textarea>
-              </div>
-              <div class="button">
-                <button class="btn-standard" type="submit">enviar</button>
-            </div>
-              </form>
-            </div> -->
+        <?php if (!usuarioLogueado()):?>
+          <section id="section-contact">
             <div id="section-forms">
               <div class="formulario">
                 <h1>LOGIN</h1>
@@ -328,8 +308,8 @@ if ($_POST) {
                   </form>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        <?php endif?>
         </div>
       </main>
       <footer class="footer">

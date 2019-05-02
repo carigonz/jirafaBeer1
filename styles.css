@@ -271,14 +271,11 @@ h1 {
 }
 
 /* forms */
-
-.contain-contact{
-  padding: 30px 0;
-}
 /* form contacto */
 
 #section-contact{
-  background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,0.8))
+  background-image: linear-gradient(to right,rgba(251, 255, 23, 0.637), rgba(255, 153, 0,0.8));
+  padding: 30px 0;
 }
 .contacto{
   max-width: 560px;
