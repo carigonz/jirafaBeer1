@@ -116,7 +116,7 @@ if ($_POST) {
                 <li><a href="index.php">home</a></li>
               <?php if (usuarioLogueado()):?>
                 <li><a href="logout.php"><?= $logout?></a>
-                <span class="welcome" style="padding: 14.5px 16px; margin: 10px 0; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
+                <span class="welcome" style="padding: 14.5px 16px; float: right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
               <?php else:?>
                   <li><a href="#section-forms"><?= $login?></a></li>
               <?php endif?>

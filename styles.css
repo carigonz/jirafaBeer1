@@ -39,6 +39,7 @@ header {
   float: right;
   border: none; 
   color: white; 
+  font-size: 1.2em;
   padding: 11.5px 16px;
   cursor: pointer; 
 }
@@ -546,11 +547,14 @@ label[for=abrir-cerrar]{
   color: #f90;
   float:left;
   padding: 14.5px 16px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .menu li:nth-last-child(1){
   float: right;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
 }
 .btn-home{
   color: #faa914;
