@@ -107,19 +107,19 @@ if ($_POST) {
 <body>
     <header class="nav-header"> 
         <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
-        <label for="abrir-cerrar"><a href="#home" class="btn-home"><i class="fa fa-home"></i></a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
+        <label for="abrir-cerrar"><a href="#home" class="btn-home">Login</a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
         <div id="sidebar" class="sidebar">
             <ul class="menu">
-                <li><a href="#section-nosotros">nosotros</a></li>
-                <li><a href="#section-estilos">estilos</a></li>
+                <li><a href="index.php#section-nosotros">nosotros</a></li>
+                <li><a href="index.php#section-estilos">estilos</a></li>
                 <li><a href="contact.php">contacto</a></li>
-                <li><a href="index.php">home</a></li><!-- 
-                <li><a class="btn-home" href="#home"><i class="fa fa-home btn-home"></i></a></li> -->
-                <?php if (usuariologueado()):?>
-                <li><span style="padding: 14.5px 16px; color: #f90; float:left" >Bienvenide, <?= $nameOk?> !</span><a href="logout.php"><?= $logout?>
-                  <?php else:?>
-                  <li><a href="#section-forms"><?= $login?>
-                  <?php endif?></a></li>
+                <li><a href="index.php">home</a></li>
+              <?php if (usuarioLogueado()):?>
+                <li><a href="logout.php"><?= $logout?></a>
+                <span class="welcome" style="padding: 14.5px 16px; margin: 10px 0; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
+              <?php else:?>
+                  <li><a href="#section-forms"><?= $login?></a></li>
+              <?php endif?>
             </ul>
         </div>
     </header>

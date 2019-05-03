@@ -541,8 +541,8 @@ label[for=abrir-cerrar]{
   margin:0;
   padding: 14.5px 10px;
 }
-
-#welcome {
+/*style="padding: 14.5px 16px; color: #f90; float:left"*/
+.welcome {
   color: #f90;
   float:left;
   padding: 14.5px 16px;
