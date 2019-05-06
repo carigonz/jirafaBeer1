@@ -545,7 +545,7 @@ label[for=abrir-cerrar]{
 /*style="padding: 14.5px 16px; color: #f90; float:left"*/
 .welcome {
   color: #f90;
-  float:left;
+  float:right;
   padding: 14.5px 16px;
   margin: 0;
 }
