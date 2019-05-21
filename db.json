@@ -61,6 +61,14 @@
             "email": "33333@gmail.com",
             "gender": "other",
             "pass": "$2y$10$ytMjA4tJvN2fiT\/f6c86HuX9bWmXGiihBGKXb5.5rxe\/Hj4QaIara"
+        },
+        {
+            "id": 8,
+            "name": "mario",
+            "lastName": "pugliese",
+            "email": "mario@pugliese.com",
+            "gender": "other",
+            "pass": "$2y$10$hkJFUuqMvhnWL1LnLTqhJe4YS9RJ4BKfmQYY.NczOk.AOx02hr7Ea"
         }
     ]
 }
