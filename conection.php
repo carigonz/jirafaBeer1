@@ -1,5 +1,6 @@
 <?php
 
+//si van a setear su conexion no me borren esto, comentenlo y agregen las lineas para sus pcs
 $dsn = "mysql:host=localhost;dbname=Giraff_Beer;port=3336";
 $user = "root";
 $pass = "";

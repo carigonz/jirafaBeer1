@@ -2,8 +2,10 @@
 
 require_once "funciones.php";
 require_once "classes/validator.php";
-require_once "classes/usuario.php";
+//require_once "classes/usuario.php";
+require_once "classes/dbmysql.php";
 
+$dbMysql = new DbMysql;
 
 $errores=[];
 $lastNameOk="";
@@ -35,20 +37,27 @@ if ($_POST) {
     $emailOk = trim($_POST["email"]);
 
     if (empty($errores)){
+
+      //var_dump($_POST["email"]);
+      //echo "<br>";
+      //$quepaso = existeElusuario($_POST["email"]);
+      //var_dump($quepaso);
+      
+
       if(!existeElUsuario($_POST["email"])){
 
         $usuario= new Usuario($_POST); //armarUsuario($_POST);
-        var_dump($usuario);
-        exit;
+        //var_dump($usuario);
+        //exit;
         
-        $guardarUsuario=guardarUsuario($usuario);
+        $guardarUsuario=$dbMysql->guardarUsuario($usuario);
         // var_dump($guardarUsuario);
         //exit; 
 
         //logueo al usuario
         $usuario= buscarUsuario($_POST["email"]);
         loguearUsuario($_POST["email"]);
-        var_dump($usuario);
+        //var_dump($usuario);
         //redirijo
         header("Location:exito.php");
         exit;

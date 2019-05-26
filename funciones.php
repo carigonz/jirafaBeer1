@@ -4,6 +4,9 @@
 session_start();
 //echo "soy funciones.php";
 
+require_once "conection.php";
+
+
 function validarRegistro($datos){
   $errores =[];
   $datosFinales=[];
@@ -14,26 +17,22 @@ function validarRegistro($datos){
   } elseif (!preg_match('/^[\p{L} ]+$/u',$datos["name"])){
     $errores["name"] = "El nombre no puede contener números.";
   }
-
   //apellido
   if(strlen($datos["lastName"]) == 0){
     $errores["lastName"] = "Campo obligatorio.";
   } elseif(!preg_match('/^[\p{L} ]+$/u',$datos["lastName"])){
     $errores["lastName"] = "El apellido no puede contener números.";
   }
-
   //gender
   if(!isset($datos["gender"])){
     $errores["gender"]="Por favor, elija una opción.";
   }
-
   //email
   if(strlen($datos["email"])==0){
     $errores["email"]="Campo obligatorio.";
   } elseif (!filter_var($datos["email"],FILTER_VALIDATE_EMAIL)) {
     $errores["email"]="Ingrese un email válido.";
   } 
-
   //pass
   if(strlen($datos["pass"])==0){
     $errores["pass"]="Campo obligatorio.";
@@ -42,7 +41,6 @@ function validarRegistro($datos){
   } elseif ($datos["pass"] != $datos["pass2"]){
     $errores["pass"]="Las contraseñas no coinciden.";
   }
-
   //adult
   if(!isset($datos["adult"])){
     $errores["adult"]="Debe aceptar los términos y condiciones.";
@@ -61,7 +59,6 @@ function actualizarRegistro($datos){
       $errores["name"] = "El nombre no puede contener números.";
     }
   }
-
   //apellido
   if (isset($datos["lastName"])){
     if(strlen($datos["lastName"]) == 0){
@@ -71,12 +68,10 @@ function actualizarRegistro($datos){
     $errores["lastName"] = "El apellido no puede contener números.";
     }
   }
-
   //gender
  /*  if(!isset($datos["gender"])){
     $errores["gender"]="Por favor, elija una opción.";
   } */
-
   //email
   if (isset($datos["email"]) || isset($datos["email2"])){
     if(strlen($datos["email"])==0){
@@ -90,10 +85,7 @@ function actualizarRegistro($datos){
     } elseif ($datos["email"]!=$datos["email2"]){
       $errores["email"]="las contraseñas no coinciden.";
     }
-    //Y como valido si el mail esta registrado con otro nombre??
   } 
-
-
   //pass
   if (isset($datos["pass"])||isset($datos["pass22"])||isset($datos["pass3"])){
     if(strlen($datos["pass"])==0 || strlen($datos["pass2"])==0 || strlen($datos["pass3"])==0){
@@ -103,23 +95,13 @@ function actualizarRegistro($datos){
     } elseif ($datos["pass"]==$datos["pass2"]) {
       $errores["pass"]="La contraseña no puede ser la misma.";
     }
-    //elseif (la contraseña original no es correcta){
-      //$errores["pass"]="La contraseña actual es incorrecta.";
-    //} elseif (la contraseña original es correcta){
-      //guardar en json $usuario["pass"] = pass2/pass3
-    //}
 }
-
-
-
   return $errores;
 }
 
-
-
 function buscarUsuario($email){
   //var_dump($email);
-  if (!file_exists("db.json")){
+  /* if (!file_exists("db.json")){
     $json="";
   } else{
     $json=file_get_contents("db.json");
@@ -136,10 +118,20 @@ function buscarUsuario($email){
       return $position;
     }
   }
-  return null;
+  return null;*/
+
+  global $db;
+  $stmt=$db->prepare("SELECT * FROM usuarios WHERE mail = :email");
+
+  $stmt->bindValue(":email", $email);
+  $stmt->execute();
+
+  $usuario = $stmt->fetch(PDO::FETCH_ASSOC);
+  
+  return $usuario;
 }
-
-
+ 
+//esta funcion no se utiliza pues la db asigna el ID
 function lastID(){
   $json=file_get_contents("db.json");
   $array=json_decode($json,true);
@@ -147,7 +139,6 @@ function lastID(){
   if(isset($array)==false){
     return $lastId=0;
   }
-  
   $ultimoElemento=array_pop($array["usuarios"]);
   $lastId=$ultimoElemento["id"]+1;
   return $lastId;
@@ -167,20 +158,27 @@ function armarUsuario($array){
 
 function guardarUsuario($user){
 
-  $json=file_get_contents("db.json");
-  $array=json_decode($json,true);
-  $array["usuarios"][]=$user;
-  //que hace json pretty print?
-  $array=json_encode($array, JSON_PRETTY_PRINT);
-  file_put_contents("db.json",$array);
+  //$json=file_get_contents("db.json");
+  //$array=json_decode($json,true);
+  //$array["usuarios"][]=$user;
+  //$array=json_encode($array, JSON_PRETTY_PRINT);
+  //file_put_contents("db.json",$array);
 
+  global $db;
+  $stmt = $db->prepare("INSERT INTO usuarios VALUES (default, :name, :lastName, :email, :gender, :pass)");
+
+  $stmt->bindValue(":name", $user["name"]);
+  $stmt->bindValue (":lastName", $user["lastName"]);
+  $stmt->bindValue(":email", $user["email"]);
+  $stmt->bindValue(":gender", $user["gender"]);
+  $stmt->bindValue(":pass", $user["pass"]);
+
+  $stmt->execute();
 }
-
 
 function existeElUsuario($email){
   return buscarUsuario($email)!==null;
 }
-
 
 function validarLogin($datos){
   $errores =[];
@@ -197,7 +195,6 @@ function validarLogin($datos){
   } elseif (!existeElUsuario($datosFinales["email"])){
     $errores["email"]="El email no existe.";
   }
-
   //pass
   if(strlen($datosFinales["pass"])==0){
     $errores["pass"]="Campo obligatorio.";
@@ -206,17 +203,12 @@ function validarLogin($datos){
   if (!password_verify($datosFinales["pass"], $usuario["pass"])){
     $errores["pass"]= "La contraseña es incorrecta.";
   }
-  
-
-
-
   return $errores;
 }
 
 function loguearUsuario($email){
   $_SESSION["email"]=$email;
 }
-
 
 function usuarioLogueado(){
   return isset($_SESSION["email"]);
@@ -226,7 +218,7 @@ function traerUsuarioLogueado(){
   if (isset($_SESSION["email"])){
     return buscarUsuario($_SESSION["email"]);
   }
-  return false;
+  return false;// porque retorna false?
 }
 
 function setCookies($usuario){
