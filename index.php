@@ -1,6 +1,7 @@
 <?php
 
 require_once "funciones.php";
+require_once "classes/validator.php";
 
 
 $errores=[];
@@ -23,11 +24,10 @@ if (usuarioLogueado()){
   $emailOk=$usuario["email"];
 }
 
-
 if ($_POST) {
   if (!empty($_POST["register"])) {
     
-    $errores = validarRegistro($_POST);
+    $errores = Validator::validarRegistro($_POST);
     //var_dump($errores);
     $nameOk = trim($_POST["name"]);
     $lastNameOk = trim($_POST["lastName"]);
@@ -56,7 +56,7 @@ if ($_POST) {
   }
   if (!empty($_POST['login'])) {
     
-    $errores = validarLogin($_POST);
+    $errores = Validator::validarLogin($_POST);
     //var_dump($errores);
 
     if (empty($errores)){
@@ -83,12 +83,8 @@ if ($_POST) {
       header("Location:exito.php");
       exit;
     }
-    
   }
-
 }
-
-
 ?>
 
 
@@ -125,7 +121,7 @@ if ($_POST) {
     </header>
     <main>
       <div id="contenido">
-        <section class="landing" id="home">
+        <!-- <section class="landing" id="home">
             <div class="bloque-home">
                 <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video>
                 <div class="logo-landing">
@@ -133,15 +129,15 @@ if ($_POST) {
                     <h2 class="title-princ">jirafa BrewHouse</h2>
                 </div>
             </div>  
-        </section>
-        <section id="section-nosotros">
+        </section> -->
+       <!--  <section id="section-nosotros">
             <div class="nosotros">  
                 <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <em>cerveza de garage</em>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
                 <!-- <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p> -->
                 
               </div>
-        </section>
-        <section id="section-estilos">
+        </section> -->
+        <!-- <section id="section-estilos">
           <div class="container-styles">
             <h1 class="title-princ">estilos</h1>
               <div style="background-image:url(IMG/rubia2.jpg)" class="card">
@@ -155,9 +151,9 @@ if ($_POST) {
                 <div style="background-image:url(IMG/roja2.jpg)" class="card">
                   <h1>Roja</h1>
                   <p class="title">Cervezas maltosas, agradables al paladar</p>
-                </div>
+                </div> -->
                     <!-- cards desktop -->
-                <div style="background-image:url(IMG/rubia.jpg);alt:cerveza rubia" class="card-desktop">
+                <!-- <div style="background-image:url(IMG/rubia.jpg);alt:cerveza rubia" class="card-desktop">
                   <h1>Rubia</h1>
                   <p class="title">IPA's o Blonde, muy suaves o muy power.</p>
                 </div>
@@ -170,7 +166,7 @@ if ($_POST) {
                   <p class="title">Cervezas maltosas, agradables al paladar</p>
                 </div>
           </div>
-        </section>
+        </section> -->
         <?php if (!usuarioLogueado()):?>
           <section id="section-contact">
             <div id="section-forms">
