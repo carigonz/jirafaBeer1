@@ -139,7 +139,7 @@ if ($_POST) {
               </div>
               <div class="title">
                   <h1>Negra</h1>
-                  <p>Stout, porter, mucho aroma y sabor.</p>
+                  <p class="title">Stout, porter, mucho aroma y sabor.</p>
               </div>
             </article>
             <article class="estilo">
@@ -148,7 +148,7 @@ if ($_POST) {
               </div>
               <div class="title">
                   <h1>Roja</h1>
-                  <p>Cervezas maltosas, agradables al paladar</p>
+                  <p class="title">Cervezas maltosas, agradables al paladar</p>
               </div>
             </article>
             <article class="estilo">
@@ -157,7 +157,7 @@ if ($_POST) {
               </div>
               <div class="title">
                   <h1>Reserva</h1>
-                  <p>Cervezas doradas reserva en barriles de whisky con sabores afrutados.</p>
+                  <p class="title">Cervezas doradas reserva en barriles de whisky con sabores afrutados.</p>
               </div>
             </article>
                     <!-- cards desktop -->

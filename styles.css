@@ -283,6 +283,7 @@ h1 {
 
 article.estilo{
   padding: 1em;
+  position: relative;
 }
 
 /* forms */
@@ -601,12 +602,11 @@ label[for=abrir-cerrar]{
   width: 48%;
 }
 .estilo:nth-child(odd){
-  float: left;
-}
-.estilo:nth-child(even){
   float: right;
 }
-
+.estilo:nth-child(even){
+  float: left;
+}
 
 /*.container-styles{ Note: eliminar
   position: relative;
@@ -651,5 +651,7 @@ label[for=abrir-cerrar]{
   width: 100%;
   color: #efefef;
   font-size: 18px;
+  position: absolute;
+  bottom: 0;
 }
 }
