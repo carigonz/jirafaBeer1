@@ -2,6 +2,7 @@
 
 require_once "funciones.php";
 require_once "classes/validator.php";
+require_once "classes/usuario.php";
 
 
 $errores=[];
@@ -36,7 +37,10 @@ if ($_POST) {
     if (empty($errores)){
       if(!existeElUsuario($_POST["email"])){
 
-        $usuario=armarUsuario($_POST);
+        $usuario= new Usuario($_POST); //armarUsuario($_POST);
+        var_dump($usuario);
+        exit;
+        
         $guardarUsuario=guardarUsuario($usuario);
         // var_dump($guardarUsuario);
         //exit; 
