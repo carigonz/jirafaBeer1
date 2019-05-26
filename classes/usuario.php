@@ -22,11 +22,12 @@ class Usuario {
 			$this->id =$datos["id"];
 			$this->pass = $datos["pass"];
 		} else {
-				$this->id =$datos["id"];
-				$this->pass=password_hash($datos["pass"],PASSWORD_DEFAULT);
+				$this->id = NULL;
+				$this->pass = password_hash($datos["pass"],PASSWORD_DEFAULT);
 		}
 
-		$this->nombre =$datos["nombre"];
+		$this->name =$datos["name"];
+		$this->lastName = $datos["lastName"];
 		$this->email=$datos["email"];
 		$this->gender=$datos["gender"];
 	}
@@ -34,10 +35,12 @@ class Usuario {
 	public function getId(){
 		return $this->id;
 	}
-	public function getNombre(){
-		return $this->nombre;
+	public function getName(){
+		return $this->name;
 	}
-
+	public function getLastName(){
+		return $this->lastName;
+	}
 	public function getEmail(){
 		return $this->email;
 	}
@@ -49,8 +52,12 @@ class Usuario {
 	}
 
 
-	public function setNombre($nombre){
-		$this->nombre = $nombre;
+	public function setName($nombre){
+		$this->name = $nombre;
+		return $this;
+	}
+	public function setLastName($apellido){
+		$this->lastName = $apellido;
 		return $this;
 	}
 	public function setEmail($email){
