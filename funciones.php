@@ -5,7 +5,9 @@ session_start();
 //echo "soy funciones.php";
 
 require_once "conection.php";
+require_once "classes/dbmysql.php";
 
+$dbMysql = new DbMysql;
 
 function validarRegistro($datos){
   $errores =[];
@@ -121,7 +123,7 @@ function buscarUsuario($email){
   return null;*/
 
   global $db;
-  $stmt=$db->prepare("SELECT * FROM usuarios WHERE mail = :email");
+  $stmt=$db->prepare("SELECT * FROM usuarios WHERE email = :email");
 
   $stmt->bindValue(":email", $email);
   $stmt->execute();
@@ -178,6 +180,7 @@ function guardarUsuario($user){
 
 function existeElUsuario($email){
   return buscarUsuario($email)!==null;
+  //return ($dbMysql->buscarUsuario($email)!==NULL);
 }
 
 function validarLogin($datos){

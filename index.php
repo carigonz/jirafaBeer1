@@ -3,9 +3,9 @@
 require_once "funciones.php";
 require_once "classes/validator.php";
 //require_once "classes/usuario.php";
-require_once "classes/dbmysql.php";
+//require_once "classes/dbmysql.php";
 
-$dbMysql = new DbMysql;
+//$dbMysql = new DbMysql;
 
 $errores=[];
 $lastNameOk="";
@@ -40,22 +40,22 @@ if ($_POST) {
 
       //var_dump($_POST["email"]);
       //echo "<br>";
-      //$quepaso = existeElusuario($_POST["email"]);
+      //$quepaso =$dbMysql->existeElusuario($_POST["email"]);
       //var_dump($quepaso);
-      
+      //exit;
 
-      if(!existeElUsuario($_POST["email"])){
+      if($dbMysql->existeElUsuario($_POST["email"])==NULL){
 
         $usuario= new Usuario($_POST); //armarUsuario($_POST);
         //var_dump($usuario);
         //exit;
         
         $guardarUsuario=$dbMysql->guardarUsuario($usuario);
-        // var_dump($guardarUsuario);
+        //var_dump($guardarUsuario);
         //exit; 
 
         //logueo al usuario
-        $usuario= buscarUsuario($_POST["email"]);
+        //$usuario= buscarUsuario($_POST["email"]); esta linea no se porque esta acá
         loguearUsuario($_POST["email"]);
         //var_dump($usuario);
         //redirijo
@@ -73,11 +73,11 @@ if ($_POST) {
     //var_dump($errores);
 
     if (empty($errores)){
-      $usuario= buscarUsuario($_POST["email"]);
+      $usuario= $dbMysql->buscarUsuario($_POST["email"]);
       //var_dump($usuario);
       //var_dump($_POST);
-      //var_dump($usuario);
-      //exit;
+      var_dump($usuario);
+      exit;
       
       if ($usuario==null){
         $errorLogin = "El mail no se encuentra registrado. Por favor, regístrese haciendo <a href='#section-register'>click acá</a>.";
@@ -322,6 +322,12 @@ if ($_POST) {
         </div>
       </main>
       <footer class="footer">
+        <div class="contact-footer">
+          <h2>Contact us</h2>
+          <p><a href="contact.php"><i class="far fa-comments"></i>Mensaje</a></p>
+          <p><i class="fas fa-at"></i> contact@girafabrew.com</p>
+          <p><i class="fab fa-whatsapp"></i> +54 911 30445566</p>
+        </div>
         <div class="iconos">
           <a href=""><i class="fab fa-facebook-f"></i></a>
           <a href=""><i class="fab fa-instagram"></i></a>

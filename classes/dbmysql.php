@@ -41,7 +41,7 @@ class DbMysql extends DB
 	}
 	public function buscarUsuario($email){
 
-		$stmt=$this->conection->prepare("SELECT * FROM usuarios WHERE mail = :email");
+		$stmt=$this->conection->prepare("SELECT * FROM usuarios WHERE email = :email");
 
 		$stmt->bindValue(":email", $email);
 		$stmt->execute();
@@ -55,6 +55,9 @@ class DbMysql extends DB
 			return $usuario;
 		}
 	}
-
+	public function existeElUsuario($email){
+		$stmt=$this->buscarUsuario($email);
+		return $stmt;
+	}
 
 }

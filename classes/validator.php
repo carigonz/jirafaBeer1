@@ -1,11 +1,16 @@
 <?php
 
+require_once "dbmysql.php";
+
+$dbMysql= new DbMysql;
+
 
 class Validator {
 
 	public static function validarRegistro($datos){
 		$errores =[];
 		$datosFinales=[];
+		global $dbMysql;
 	
 		//nombre
 		if(strlen($datos["name"]) == 0){
@@ -54,6 +59,7 @@ class Validator {
 	public static function validarLogin($datos){
 		$errores =[];
 		$datosFinales=[];
+		global $dbMysql;
 	
 		foreach ($datos as $position => $valor){
 			$datosFinales[$position]=trim($valor);
@@ -63,7 +69,7 @@ class Validator {
 			$errores["email"]="Campo obligatorio.";
 		} elseif (!filter_var($datosFinales["email"],FILTER_VALIDATE_EMAIL)) {
 				$errores["email"]="Ingrese un email válido.";
-			} elseif (!existeElUsuario($datosFinales["email"])){
+			} elseif ($dbMysql->existeElUsuario($datosFinales["email"])==NULL){
 				$errores["email"]="El email no existe.";
 			}
 	
@@ -71,8 +77,14 @@ class Validator {
 		if(strlen($datosFinales["pass"])==0){
 			$errores["pass"]="Campo obligatorio.";
 		}  
-		$usuario=buscarUsuario($datosFinales["email"]);
-			if (!password_verify($datosFinales["pass"], $usuario["pass"])){
+		$usuario=$dbMysql->buscarUsuario($datosFinales["email"]);
+
+		var_dump($usuario);
+		echo "<br>";
+		var_dump($datosFinales["pass"]);
+		//exit;
+
+			if (password_verify($datosFinales["pass"], $usuario->getPass())==false){
 				$errores["pass"]= "La contraseña es incorrecta.";
 			}
 	
