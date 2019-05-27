@@ -1,7 +1,11 @@
 <?php
 
 require_once "funciones.php";
+require_once "classes/validator.php";
+//require_once "classes/usuario.php";
+require_once "classes/dbmysql.php";
 
+$dbMysql = new DbMysql;
 
 $errores=[];
 $lastNameOk="";
@@ -9,68 +13,90 @@ $nameOk="";
 $emailOk="";
 $usuarioExistente="";
 $errorLogin=false;
+$logout= "logout";
+$login="login";
 
 //var_dump($_POST);
-echo "<br>";
+//echo "<br>";
+if (usuarioLogueado()){
+  $usuario=traerUsuarioLogueado();
+  //la funcion traer usuario logueado anda medio mal
+  //$usuario = $_SESSION["email"]; //sigo sin saber porque esta el array de usuario adentro de una posicion email dentro de session
+  $lastNameOk=$usuario["lastName"];
+  $nameOk=$usuario["name"];
+  $emailOk=$usuario["email"];
+}
+
 if ($_POST) {
   if (!empty($_POST["register"])) {
 
-    $errores = validarRegistro($_POST);
+    $errores = Validator::validarRegistro($_POST);
     //var_dump($errores);
     $nameOk = trim($_POST["name"]);
     $lastNameOk = trim($_POST["lastName"]);
     $emailOk = trim($_POST["email"]);
 
     if (empty($errores)){
+
+      //var_dump($_POST["email"]);
+      //echo "<br>";
+      //$quepaso = existeElusuario($_POST["email"]);
+      //var_dump($quepaso);
+
+
       if(!existeElUsuario($_POST["email"])){
 
-        $usuario=armarUsuario($_POST);
-        $guardarUsuario=guardarUsuario($usuario);
+        $usuario= new Usuario($_POST); //armarUsuario($_POST);
+        //var_dump($usuario);
+        //exit;
+
+        $guardarUsuario=$dbMysql->guardarUsuario($usuario);
         // var_dump($guardarUsuario);
         //exit;
-      }else{
-        $usuarioExistente = "El usuario ya se encuentra registrado.";
-      }
+
+        //logueo al usuario
+        $usuario= buscarUsuario($_POST["email"]);
+        loguearUsuario($_POST["email"]);
+        //var_dump($usuario);
+        //redirijo
+        header("Location:exito.php");
+        exit;
+        }else{
+          $usuarioExistente = "El usuario ya se encuentra registrado.";
+        }
+
     }
   }
   if (!empty($_POST['login'])) {
 
-    $errores = validarLogin($_POST);
+    $errores = Validator::validarLogin($_POST);
     //var_dump($errores);
 
     if (empty($errores)){
       $usuario= buscarUsuario($_POST["email"]);
-
+      //var_dump($usuario);
+      //var_dump($_POST);
       //var_dump($usuario);
       //exit;
-
-      /* if ($usuario == "La contraseña es incorrecta."){
-        $errorLogin= $usuario; */
 
       if ($usuario==null){
         $errorLogin = "El mail no se encuentra registrado. Por favor, regístrese haciendo <a href='#section-register'>click acá</a>.";
       }
+      //logeo al usuario
+      loguearUsuario($usuario["email"]);
+
+      //seteo de cookies
+
+      if (isset($_POST["remember"])){
+        setCookies($usuario);
+      }
 
       //redirijo
-      header ("Location:exito.php");
+
+      header("Location:exito.php");
       exit;
-
-      //session va en otra pagina??
-
-      //session_start();
-      //$_SESSION["name"]=$usuario["name"];
-      //$_SESSION["email"]=$usuario["email"];
-      //$_SESSION["gender"]=$usuario["gender"];
-      //$_SESSION["lastName"]=$usuario["lastName"];
-
-      //header("Location:exito.php");
-
-
-
     }
-
   }
-
 }
 ?>
 
@@ -88,80 +114,59 @@ if ($_POST) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <!-- cabecera -->
     <header class="nav-header">
         <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
-        <label for="abrir-cerrar"><a href="#home" class="btn-home"><i class="fa fa-home"></i></a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
+        <label for="abrir-cerrar"><a href="#home" class="btn-home">Login</a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
         <div id="sidebar" class="sidebar">
             <ul class="menu">
-                <li><a href="#section-nosotros">nosotros</a></li>
-                <li><a href="#section-estilos">estilos</a></li>
+                <li><a href="index.php#section-nosotros">nosotros</a></li>
+                <li><a href="index.php#section-estilos">estilos</a></li>
                 <li><a href="contact.php">contacto</a></li>
-                <li><a href="#section-forms">login</a></li>
-                <li><a class="btn-home" href="index.php"><i class="fa fa-home btn-home"></i></a></li>
+                <li><a href="index.php">home</a></li>
+              <?php if (usuarioLogueado()):?>
+                <li><a href="logout.php"><?= $logout?></a>
+                <span class="welcome" style="padding: 14.5px 16px; float: right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
+              <?php else:?>
+                  <li><a href="#section-forms"><?= $login?></a></li>
+              <?php endif?>
             </ul>
         </div>
     </header>
-
     <main>
       <div id="contenido">
-        <section class="landing" id="home">
+        <!-- <section class="landing" id="home">
             <div class="bloque-home">
-                 <!-- <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video> -->
+                <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video>
                 <div class="logo-landing">
-                    <img class="logo-landing-img" src="IMG\jirafa-brew-house-logo.png" alt="jirafa-logo">
-
+                    <img class="logo-landing-img" src="IMG\girafa-beer-logo.png" alt="girafa-logo">
+                    <h2 class="title-princ">jirafa BrewHouse</h2>
                 </div>
             </div>
-        </section>
-        <section id="section-nosotros">
+        </section> -->
+       <!--  <section id="section-nosotros">
             <div class="nosotros">
                 <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <em>cerveza de garage</em>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
                 <!-- <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p> -->
 
               </div>
-        </section>
-        <!-- categorias o estilos de cerveza -->
-        <section class="section-estilos" id="section-estilos">
-          <h1 class="title-princ">estilos</h1>
-            <article class="estilo">
-              <div class="photo-container">
-                  <img class="photo" src="IMG/estilo-rubia.jpg" alt="estilo 01">
-              </div>
-              <div class="title">
+        </section> -->
+        <!-- <section id="section-estilos">
+          <div class="container-styles">
+            <h1 class="title-princ">estilos</h1>
+              <div style="background-image:url(IMG/rubia2.jpg)" class="card">
                   <h1>Rubia</h1>
                   <p class="title">IPA's o Blonde, muy suaves o muy power.</p>
-              </div>
-            </article>
-            <article class="estilo">
-              <div class="photo-container">
-                <img class="photo" src="IMG/estilo-negra.jpg" alt="estilo 02">
-              </div>
-              <div class="title">
+                </div>
+                <div style="background-image:url(IMG/negra2.jpg)" class="card">
                   <h1>Negra</h1>
                   <p class="title">Stout, porter, mucho aroma y sabor.</p>
-              </div>
-            </article>
-            <article class="estilo">
-              <div class="photo-container">
-                <img class="photo" src="IMG/estilo-roja.jpg" alt="estilo 03">
-              </div>
-              <div class="title">
+                </div>
+                <div style="background-image:url(IMG/roja2.jpg)" class="card">
                   <h1>Roja</h1>
                   <p class="title">Cervezas maltosas, agradables al paladar</p>
-              </div>
-            </article>
-            <article class="estilo">
-              <div class="photo-container">
-                <img class="photo" src="IMG/estilo-reserva.jpg" alt="estilo 04">
-              </div>
-              <div class="title">
-                  <h1>Reserva</h1>
-                  <p class="title">Cervezas doradas reserva en barriles de whisky con sabores afrutados.</p>
-              </div>
-            </article>
+                </div> -->
                     <!-- cards desktop -->
-                <!--<div style="background-image:url(IMG/rubia.jpg);alt:cerveza rubia" class="card-desktop">
+                <!-- <div style="background-image:url(IMG/rubia.jpg);alt:cerveza rubia" class="card-desktop">
                   <h1>Rubia</h1>
                   <p class="title">IPA's o Blonde, muy suaves o muy power.</p>
                 </div>
@@ -172,10 +177,11 @@ if ($_POST) {
                 <div style="background-image:url(IMG/roja.jpg)" class="card-desktop">
                   <h1>Roja</h1>
                   <p class="title">Cervezas maltosas, agradables al paladar</p>
-                </div> -->
-
-        </section>
-
+                </div>
+          </div>
+        </section> -->
+        <?php if (!usuarioLogueado()):?>
+          <section id="section-contact">
             <div id="section-forms">
               <div class="formulario">
                 <h1>LOGIN</h1>
@@ -206,7 +212,7 @@ if ($_POST) {
                   </div>
                   <button type="submit" class="btn-standard" value="login" name="login">Ingresar</button>
                   <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="remember">
+                    <input type="checkbox" value="remember" class="form-check-input" name="remember" id="remember">
                     <label class="form-check-label" for="remember">Recordarme</label>
                   </div>
                 </form>
@@ -311,8 +317,9 @@ if ($_POST) {
                   </form>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        <?php endif?>
+        </div>
       </main>
       <footer class="footer">
         <div class="iconos">
@@ -325,6 +332,5 @@ if ($_POST) {
 
 
       </footer>
-    </div>
   </body>
 </html>

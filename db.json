@@ -6,6 +6,69 @@
             "lastName": "gonzalez",
             "email": "carolinagonzalez794@gmail.com",
             "pass": "$2y$10$QFAi7Y9Nhn\/J6Hqj1uD9HuPm427rssuNE3u53q.RgB8P6eFp7WVfW"
+        },
+        {
+            "id": 1,
+            "name": "cos me",
+            "lastName": "fulanito",
+            "email": "cosme@fulanito.com",
+            "pass": "$2y$10$sQ6JYlvgi9YfjSE163Uyfe6WdSPQhA3cjfGUa9z3N9zOOpWRP62XO"
+        },
+        {
+            "id": 2,
+            "name": "ayra",
+            "lastName": "stark",
+            "email": "ayra@stark.com",
+            "gender": "fem",
+            "pass": "$2y$10$g\/n34rVZ9TesCt9PGKsMb.KlhpktAEQbyYV8ol\/AHsfDILf7mfOvS"
+        },
+        {
+            "id": 3,
+            "name": "pepe",
+            "lastName": "argento",
+            "email": "pepe@argento.com",
+            "gender": "masc",
+            "pass": "$2y$10$MlNWf3\/Q8Nrh\/BQ0JGtqA.XN4ZN\/mtxogO2TwayC1mYCZn1KDcKs6"
+        },
+        {
+            "id": 4,
+            "name": "julieta",
+            "lastName": "lado",
+            "email": "julieta@lado.com",
+            "gender": "fem",
+            "pass": "$2y$10$gS5Z7vr5IPjkvmkyCbF0vOCNmIKlg1Z0aj4HxUjrKMP47swAsEn4."
+        },
+        {
+            "id": 5,
+            "name": "narela delicia",
+            "lastName": "fleitas",
+            "email": "narela@fleitas.com",
+            "gender": "fem",
+            "pass": "$2y$10$ks94NYKh.SLYylEqswKoDOatttCZ7eE8WREQseJR5J1eSEMyjNF\/i"
+        },
+        {
+            "id": 6,
+            "name": "HOLA",
+            "lastName": "HOLa",
+            "email": "hola@hola.com",
+            "gender": "masc",
+            "pass": "$2y$10$5Dn2wj8tJ\/5tQGuU8WqkeeWBsTgoFbisHAo.pHJySidXvM1V6uNoK"
+        },
+        {
+            "id": 7,
+            "name": "hol",
+            "lastName": "a",
+            "email": "33333@gmail.com",
+            "gender": "other",
+            "pass": "$2y$10$ytMjA4tJvN2fiT\/f6c86HuX9bWmXGiihBGKXb5.5rxe\/Hj4QaIara"
+        },
+        {
+            "id": 8,
+            "name": "mario",
+            "lastName": "pugliese",
+            "email": "mario@pugliese.com",
+            "gender": "other",
+            "pass": "$2y$10$hkJFUuqMvhnWL1LnLTqhJe4YS9RJ4BKfmQYY.NczOk.AOx02hr7Ea"
         }
     ]
 }
