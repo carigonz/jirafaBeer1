@@ -1,13 +1,12 @@
 <?php
 
 
-session_start();
+//session_start();
 //echo "soy funciones.php";
 
-require_once "conection.php";
-require_once "classes/dbmysql.php";
+require_once "ini.php";
 
-$dbMysql = new DbMysql;
+//$dbMysql = new DbMysql;
 
 function validarRegistro($datos){
   $errores =[];
@@ -184,7 +183,7 @@ function existeElUsuario($email){
 }
 
 function validarLogin($datos){
-  $errores =["origen"=> "soy funciones php"];
+  $errores =[];
   $datosFinales=[];
 
   foreach ($datos as $position => $valor){

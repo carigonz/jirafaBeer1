@@ -16,10 +16,19 @@ class Usuario {
     "gender"=>$array["gender"],
     "pass"=>password_hash($array["pass"],PASSWORD_DEFAULT) */
 	
-	function __construct(Array $datos){
+	function __construct(Array $array){
 
-		if (isset($datos["id"])){
-			$this->id =$datos["id"];
+		$datos=[];
+
+		foreach ($array as $position => $valor){
+			$datos[$position]=trim($valor);
+
+		}
+		//var_dump($datos);
+		//exit;
+
+		if (isset($datos["idUsuarios"])){
+			$this->id =$datos["idUsuarios"];
 			$this->pass = $datos["pass"];
 		} else {
 				$this->id = NULL;

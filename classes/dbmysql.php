@@ -10,7 +10,7 @@ class DbMysql extends DB
 	function __construct()
 	{
 	//si van a setear su conexion no me borren esto, comentenlo y agregen las lineas para sus pcs
-	$dsn = "mysql:host=localhost;dbname=Giraff_Beer;port=3336";
+	$dsn = "mysql:host=localhost;dbname=Giraff_Beer;port=3306";
 	$user = "root";
 	$pass = "";
 
@@ -55,9 +55,18 @@ class DbMysql extends DB
 			return $usuario;
 		}
 	}
+
 	public function existeElUsuario($email){
 		$stmt=$this->buscarUsuario($email);
 		return $stmt;
+	}
+
+
+	public function traerUsuarioLogueado(){
+		if (isset($_SESSION["email"])){
+			return $this->buscarUsuario($_SESSION["email"]);
+		}
+		return false;// porque retorna false?
 	}
 
 }

@@ -82,8 +82,8 @@ class Validator {
 		/* var_dump($usuario);
 		echo "<br>";
 		var_dump($datosFinales["pass"]);
-		echo "<br>";
-		$passDB = $usuario->getPass();
+		echo "<br>"; */
+		/* $passDB = $usuario->getPass();
 		echo "<br>";
 		var_dump($passDB); */
 
@@ -97,6 +97,8 @@ class Validator {
 		echo "<br>";
 		var_dump($hola);
 		exit; */
+
+		$passDB = $usuario->getPass();
 		
 
 			if (!password_verify($datosFinales["pass"], $passDB)){
