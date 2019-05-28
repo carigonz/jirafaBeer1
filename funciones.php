@@ -184,7 +184,7 @@ function existeElUsuario($email){
 }
 
 function validarLogin($datos){
-  $errores =[];
+  $errores =["origen"=> "soy funciones php"];
   $datosFinales=[];
 
   foreach ($datos as $position => $valor){

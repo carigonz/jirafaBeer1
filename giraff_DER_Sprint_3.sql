@@ -10,15 +10,15 @@ USE `Giraff_Beer` ;
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`usuarios` (
   `idUsuarios` INT NULL AUTO_INCREMENT ,
-  `nombre` VARCHAR(45) NOT NULL ,
-  `apellido` VARCHAR(45) NOT NULL ,
-  `fecha_nac` VARCHAR(45) NOT NULL ,
-  `mail` VARCHAR(45) NOT NULL ,
-  `genero` VARCHAR(45) NULL ,
+  `name` VARCHAR(45) NOT NULL ,
+  `lastName` VARCHAR(45) NOT NULL ,
+  `email` VARCHAR(45) NOT NULL ,
+  `gender` VARCHAR(45) NOT NULL ,
+  `pass` VARCHAR(255) NULL ,
   PRIMARY KEY (`idUsuarios`) ,
   UNIQUE INDEX `idUsuarios_UNIQUE` (`idUsuarios` ASC) ,
-  UNIQUE INDEX `mail_UNIQUE` (`mail` ASC) )
-ENGINE = InnoDB;
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
+ENGINE = MariaDB;
 
 
 -- -----------------------------------------------------
@@ -30,7 +30,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`estilos` (
   `descripcion` VARCHAR(45) NULL ,
   `imagen` VARCHAR(45) NULL ,
   PRIMARY KEY (`idEstilos`) )
-ENGINE = InnoDB;
+ENGINE = MariaDB;
 
 
 -- -----------------------------------------------------
@@ -41,7 +41,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`volumen` (
   `Medida` MEDIUMINT NULL ,
   PRIMARY KEY (`idVolumen`) ,
   UNIQUE INDEX `Medida_UNIQUE` (`Medida` ASC) )
-ENGINE = InnoDB;
+ENGINE = MariaDB;
 
 
 -- -----------------------------------------------------
@@ -51,7 +51,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`talles` (
   `idtalles` INT NOT NULL ,
   `medida` INT NULL ,
   PRIMARY KEY (`idtalles`) )
-ENGINE = InnoDB;
+ENGINE = MariaDB;
 
 
 -- -----------------------------------------------------
@@ -68,7 +68,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`merchandising` (
     REFERENCES `Giraff_Beer`.`talles` (`idtalles` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = MariaDB;
 
 
 -- -----------------------------------------------------
@@ -101,7 +101,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`productos` (
     REFERENCES `Giraff_Beer`.`merchandising` (`idmerchandising` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = MariaDB;
 
 
 -- -----------------------------------------------------
@@ -130,7 +130,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`pedidos` (
     REFERENCES `Giraff_Beer`.`productos` (`idProductos` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = MariaDB;
 
 USE `Giraff_Beer` ;
 
@@ -138,3 +138,5 @@ USE `Giraff_Beer` ;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+SELECT * FROM usuarios;

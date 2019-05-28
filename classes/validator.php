@@ -79,12 +79,27 @@ class Validator {
 		}  
 		$usuario=$dbMysql->buscarUsuario($datosFinales["email"]);
 
-		var_dump($usuario);
+		/* var_dump($usuario);
 		echo "<br>";
 		var_dump($datosFinales["pass"]);
-		//exit;
+		echo "<br>";
+		$passDB = $usuario->getPass();
+		echo "<br>";
+		var_dump($passDB); */
 
-			if (password_verify($datosFinales["pass"], $usuario->getPass())==false){
+		//ESTOY TRABAJANDO ACA
+
+		/* $passDB = $usuario->getPass();
+		var_dump($passDB);
+		echo "<br>";
+		var_dump($datosFinales["pass"]);
+		$hola = password_verify($datosFinales["pass"], $passDB);
+		echo "<br>";
+		var_dump($hola);
+		exit; */
+		
+
+			if (!password_verify($datosFinales["pass"], $passDB)){
 				$errores["pass"]= "La contraseña es incorrecta.";
 			}
 	
@@ -92,3 +107,10 @@ class Validator {
 	}
 
 }
+
+//$_POST["email"]= "carolinagonzalez794@gmail.com";
+//$_POST["pass"]= 123;
+
+//$errores = Validator::validarLogin($_POST);
+//var_dump($errores);
+//echo "<br>";

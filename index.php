@@ -32,6 +32,7 @@ if ($_POST) {
     
     $errores = Validator::validarRegistro($_POST);
     //var_dump($errores);
+    //exit;
     $nameOk = trim($_POST["name"]);
     $lastNameOk = trim($_POST["lastName"]);
     $emailOk = trim($_POST["email"]);
@@ -71,19 +72,21 @@ if ($_POST) {
     
     $errores = Validator::validarLogin($_POST);
     //var_dump($errores);
+    //echo "<br>";
+    //exit;
 
     if (empty($errores)){
       $usuario= $dbMysql->buscarUsuario($_POST["email"]);
       //var_dump($usuario);
       //var_dump($_POST);
-      var_dump($usuario);
-      exit;
+      //var_dump($usuario);
+      //exit;
       
-      if ($usuario==null){
+      if ($usuario==NULL){
         $errorLogin = "El mail no se encuentra registrado. Por favor, regístrese haciendo <a href='#section-register'>click acá</a>.";
       }
       //logeo al usuario
-      loguearUsuario($usuario["email"]);
+      loguearUsuario($usuario->getEmail());
 
       //seteo de cookies
 
