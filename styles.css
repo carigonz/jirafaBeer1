@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Dokdo|Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Taviraj&display=swap');
 
 /* reseteos generales */
 *{
@@ -159,6 +160,8 @@ h1 {
   color:#f90;
   font-size:180%;
   font-weight:normal;
+  margin-top: 1px;
+  padding-bottom: 5px;
 }
 #contenido {
   transition: margin-left .4s;
@@ -180,13 +183,6 @@ h1 {
 
 /* landing */
 
-.landing{
-/*  background-image: url(http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg);
-  */
-  height: 100vh;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 .background-video{
   position: absolute;
   right: 0;
@@ -195,26 +191,37 @@ h1 {
   min-height: 100%;
 
 }
-.logo-landing{
+.background-image{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.landing{
   z-index: 55;
 }
 .logo-landing-img{
   border:1px solid transparent;
-  border-radius: 60px;
   display: block;
   margin: 0 auto;
-  z-index: 2;
   width: 30vh;
 }
-.logo{
-  text-align: center;
-  margin-top:60px;
+.landing-img{
+  border:1px solid transparent;
+  display: block;
+  margin: 0 auto;
+  width: 40vh;
+  margin-bottom: -25vh;
+  filter: drop-shadow(5px -15px 15px rgba(1,5,5,0.90));
 }
+
 .title-princ{
-  font-family: 'Dokdo', 'Varela Round', Courier, monospace;
+  font-family: 'Taviraj', 'Varela Round', Courier, monospace;
   text-align: center;
   font-size: 2.5em;
-  text-shadow: 0 0 10px #cc301b;
+  text-shadow: 1px 1px 15px rgba(255, 255, 255, 0.7);
   padding: 10px 25px;
   border-radius: 25px;
   /*box-shadow: 0 0 25px #faa914;*/
@@ -229,6 +236,7 @@ h1 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 0;
 }
 
 /* seccion nosotros */
@@ -284,6 +292,10 @@ h1 {
 article.estilo{
   padding: 1em;
   position: relative;
+}
+
+article div.title{
+  padding:5px;
 }
 
 /* forms */
@@ -588,9 +600,7 @@ label[for=abrir-cerrar]{
 }
 
 /* landing */
-.logo-landing-img{
-  width: 42vh;
-}
+
 
 /* estilos */
 

@@ -3,14 +3,14 @@
 require_once "db.php";
 require_once "usuario.php";
 
-class DbMysql extends DB 
+class DbMysql extends DB
 {
 	protected $conection;
 
 	function __construct()
 	{
 	//si van a setear su conexion no me borren esto, comentenlo y agregen las lineas para sus pcs
-	$dsn = "mysql:host=localhost;dbname=Giraff_Beer;port=3336";
+	$dsn = "mysql:host=localhost;dbname=Giraff_Beer;port=3306";
 	$user = "root";
 	$pass = "";
 
@@ -35,7 +35,7 @@ class DbMysql extends DB
 		$stmt->bindValue(":email", $user->getEmail());
 		$stmt->bindValue(":gender", $user->getGender());
 		$stmt->bindValue(":pass", $user->getPass());
-	
+
 		$stmt->execute();
 
 	}
@@ -47,7 +47,7 @@ class DbMysql extends DB
 		$stmt->execute();
 
 		$consulta = $stmt->fetch(PDO::FETCH_ASSOC);
-		
+
 		if ($consulta == false){
 			return NULL;
 		} else {
