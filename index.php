@@ -19,13 +19,13 @@ $login="login";
 
 //var_dump($_POST);
 //echo "<br>";
-if (usuarioLogueado()){
-  $usuario=traerUsuarioLogueado();
+if ($auth->usuarioLogueado()){
+  $usuario=$dbMysql->traerUsuarioLogueado();
   //la funcion traer usuario logueado anda medio mal
   //$usuario = $_SESSION["email"]; //sigo sin saber porque esta el array de usuario adentro de una posicion email dentro de session
-  $lastNameOk=$usuario["lastName"];
-  $nameOk=$usuario["name"];
-  $emailOk=$usuario["email"];
+  $lastNameOk=$usuario->getLastName();
+  $nameOk=$usuario->getName();
+  $emailOk=$usuario->getEmail();
 }
 
 if ($_POST) {

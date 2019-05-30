@@ -1,27 +1,32 @@
 <?php
 
-require_once "funciones.php";
+//require_once "funciones.php";
+require_once "ini.php";
 
 //var_dump($_SESSION["email"]);
 
 //no se porque me esta guardando el array usuario dentro de una posicion llamada email dentro de session
-$usuario = traerUsuarioLogueado();
+$usuario = $dbMysql->traerUsuarioLogueado();
 
 //var_dump($usuario);
+//exit;
 
 //deberia completar las variables desde $_SESSION
 $errores=[];
-$lastNameOk=$usuario["lastName"];
-$nameOk=$usuario["name"];
-$emailOk=$usuario["email"];
+$lastNameOk=$usuario->getLastName();
+$nameOk=$usuario->getName();
+$emailOk=$usuario->getEmail();
 $usuarioExistente="";
 $errorLogin=false;
 $logout= "logout";
 $login="login";
 
+//var_dump($nameOk);
+//exit;
 
 if ($_POST){
-  //var_dump($_POST);
+  var_dump($_POST);
+  exit;
   $errores=actualizarRegistro($_POST);
 
   //var_dump($errores);
@@ -51,7 +56,7 @@ if ($_POST){
                 <li><a href="index.php#section-estilos">estilos</a></li>
                 <li><a href="contact.php">contacto</a></li>
                 <li><a href="index.php">home</a></li>
-              <?php if (usuarioLogueado()):?>
+              <?php if ($auth->usuarioLogueado()):?>
                 <li><a href="logout.php"><?= $logout?></a>
                 <span class="welcome" style="padding: 14.5px 16px; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
               <?php else:?>
