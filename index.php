@@ -21,8 +21,10 @@ $login="login";
 //echo "<br>";
 if ($auth->usuarioLogueado()){
   $usuario=$dbMysql->traerUsuarioLogueado();
-  //la funcion traer usuario logueado anda medio mal
-  //$usuario = $_SESSION["email"]; //sigo sin saber porque esta el array de usuario adentro de una posicion email dentro de session
+
+  //var_dump($usuario);
+  //exit;
+  
   $lastNameOk=$usuario->getLastName();
   $nameOk=$usuario->getName();
   $emailOk=$usuario->getEmail();
@@ -88,7 +90,8 @@ if ($_POST) {
         $errorLogin = "El mail no se encuentra registrado. Por favor, regístrese haciendo <a href='#section-register'>click acá</a>.";
       }
       //logeo al usuario
-      $auth->loguearUsuario($usuario->getEmail());
+      $auth->loguearUsuario($usuario);
+      //$auth->setcookie($usuario);
 
       //seteo de cookies
 
@@ -128,7 +131,7 @@ if ($_POST) {
                 <li><a href="index.php#section-estilos">estilos</a></li>
                 <li><a href="contact.php">contacto</a></li>
                 <li><a href="index.php">home</a></li>
-              <?php if (usuarioLogueado()):?>
+              <?php if ($auth->usuarioLogueado()):?>
                 <li><a href="logout.php"><?= $logout?></a>
                 <span class="welcome" style="padding: 14.5px 16px; float: right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
               <?php else:?>

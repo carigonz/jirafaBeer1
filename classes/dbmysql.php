@@ -9,10 +9,17 @@ class DbMysql extends DB
 
 	function __construct()
 	{
-	//si van a setear su conexion no me borren esto, comentenlo y agregen las lineas para sus pcs
-	$dsn = "mysql:host=localhost;dbname=Giraff_Beer;port=3306";
+
+		$config=file_get_contents("config.json");
+		$configArr= json_decode($config,true);
+
+		$dbName= $configArr["dbName"];
+		$dbPort= $configArr["dbPort"];
+		$dbPass= $configArr["dbPass"];
+		
+	$dsn = "mysql:host=localhost;dbname=$dbName;port=$dbPort";
 	$user = "root";
-	$pass = "";
+	$pass = $dbPass;
 
 	try {
 		$this->conection = new PDO ($dsn, $user, $pass);

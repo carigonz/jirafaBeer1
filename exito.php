@@ -3,9 +3,8 @@
 //require_once "funciones.php";
 require_once "ini.php";
 
-//var_dump($_SESSION["email"]);
+var_dump($_SESSION["email"]);
 
-//no se porque me esta guardando el array usuario dentro de una posicion llamada email dentro de session
 $usuario = $dbMysql->traerUsuarioLogueado();
 
 //var_dump($usuario);
@@ -58,7 +57,7 @@ if ($_POST){
                 <li><a href="index.php">home</a></li>
               <?php if ($auth->usuarioLogueado()):?>
                 <li><a href="logout.php"><?= $logout?></a>
-                <span class="welcome" style="padding: 14.5px 16px; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
+                <span class="welcome" style="padding: 14.5px 16px; float:right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
               <?php else:?>
                   <li><a href="#section-forms"><?= $login?></a></li>
               <?php endif?>
