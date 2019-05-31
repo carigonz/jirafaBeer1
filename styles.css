@@ -45,7 +45,7 @@ header {
 .btn-home {
   float: right;
   border: none;
-  color: white;
+  color: #ffbb37;
   padding: 11.5px 16px;
   cursor: pointer;
 }
@@ -68,8 +68,10 @@ label[for="abrir-cerrar"] {
 }
 
 .abrir {
-  margin: 13.5px 16px;
+  margin: 14px 16px;
   display: inline-block;
+  color: #ffbb37;
+  font-weight: 800;
 }
 .cerrar {
   display: none;
@@ -96,6 +98,7 @@ input#abrir-cerrar:checked ~ #contenido {
 input#abrir-cerrar:checked + label[for="abrir-cerrar"] .cerrar {
   display: inline-block;
   margin: 13.5px 16px;
+  color: #ffbb37;
 }
 
 input#abrir-cerrar:checked + label[for="abrir-cerrar"] .abrir {

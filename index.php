@@ -142,7 +142,7 @@ if ($_POST) {
     </header>
     <main>
       <div id="contenido">
-        <!-- <section class="landing" id="home">
+        <section class="landing" id="home">
             <div class="bloque-home">
                 <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video>
                 <div class="landing">
@@ -153,12 +153,12 @@ if ($_POST) {
        <section id="section-nosotros">
             <div class="nosotros">
                 <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <em>cerveza de garage</em>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
-                <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p> -->
+                <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p>
             </div>
-      </section> -->
+      </section> 
 
         <!-- categorias o estilos de cerveza -->
-        <!-- <section class="section-estilos" id="section-estilos">
+        <section class="section-estilos" id="section-estilos">
           <h1 class="title-princ">ESTILOS</h1>
             <article class="estilo">
               <div class="photo-container">
@@ -196,9 +196,9 @@ if ($_POST) {
                   <p class="title">Cervezas doradas reserva en barriles de whisky.</p>
               </div>
             </article>
-        </section> -->
+        </section>
 
-        <?php if (!usuarioLogueado()):?>
+        <?php if (!$auth->usuarioLogueado()):?>
           <section id="section-contact">
             <div id="section-forms">
               <div class="formulario">

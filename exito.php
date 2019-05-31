@@ -71,7 +71,7 @@ if ($_POST){
             <div id="section-forms">
               <div class="formulario">
                 
-                  <h1 id="section-register">Bienvenide <?= $usuario["name"]?></h1>
+                  <h1 id="section-register">Bienvenide <?= $usuario->getName()?></h1>
                   <h3>Actualizá tus datos</h3>
               <form action="#section-register" method="POST" class="tarjets">
                 <?php /* if (existeElUsuario($_POST["email"])): */?>
