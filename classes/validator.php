@@ -54,7 +54,57 @@ class Validator {
 		return $errores;
 	}
 	
+	public static function actualizarRegistro($datos){
+		$errores =[];
+		global $dbMysql;
 	
+		//nombre
+		if (isset($datos["name"])){
+			if (strlen($datos["name"])==0){
+				$errores["name"]="El campo no puede estar vacío.";
+			}elseif (!preg_match('/^[\p{L} ]+$/u',$datos["name"])){
+				$errores["name"] = "El nombre no puede contener números.";
+			}
+		}
+		//apellido
+		if (isset($datos["lastName"])){
+			if(strlen($datos["lastName"]) == 0){
+			$errores["lastName"] = "Campo obligatorio.";
+			//la expresion regular no anda
+			} elseif(!preg_match('/^[\p{L} ]+$/u',$datos["lastName"])){
+			$errores["lastName"] = "El apellido no puede contener números.";
+			}
+		}
+		//gender
+	 /*  if(!isset($datos["gender"])){
+			$errores["gender"]="Por favor, elija una opción.";
+		} */
+		//email
+		if (isset($datos["email"]) || isset($datos["email2"])){
+			if(strlen($datos["email"])==0){
+				$errores["email"]="El campo no puede estar vacío.";
+			} elseif (strlen($datos["email2"])==0){
+					$errores["email"]="El campo no puede estar vacío.";
+			} elseif (!filter_var($datos["email"],FILTER_VALIDATE_EMAIL)) {
+				$errores["email"]="Ingrese un email válido.";
+			} elseif (!filter_var($datos["email2"],FILTER_VALIDATE_EMAIL)) {
+				$errores["email"]="Ingrese un email válido.";
+			} elseif ($datos["email"]!=$datos["email2"]){
+				$errores["email"]="los mails no coinciden.";
+			}
+		} 
+		//pass
+		if (isset($datos["pass"])||isset($datos["pass22"])||isset($datos["pass3"])){
+			if(strlen($datos["pass"])==0 || strlen($datos["pass2"])==0 || strlen($datos["pass3"])==0){
+				$errores["pass"]="Campo obligatorio.";
+			} elseif ($datos["pass2"] != $datos["pass3"]){
+				$errores["pass"]="Las contraseñas no coinciden.";
+			} elseif ($datos["pass"]==$datos["pass2"]) {
+				$errores["pass"]="La contraseña no puede ser la misma.";
+			}
+	}
+		return $errores;
+	}
 
 	public static function validarLogin($datos){
 		$errores =[];
@@ -82,14 +132,12 @@ class Validator {
 		/* var_dump($usuario);
 		echo "<br>";
 		var_dump($datosFinales["pass"]);
-		echo "<br>"; */
-		/* $passDB = $usuario->getPass();
+		echo "<br>"; 
+		$passDB = $usuario->getPass();
+		var_dump($usuario); 
 		echo "<br>";
-		var_dump($passDB); */
-
-		//ESTOY TRABAJANDO ACA
-
-		/* $passDB = $usuario->getPass();
+		exit; 
+		$passDB = $usuario->getPass();
 		var_dump($passDB);
 		echo "<br>";
 		var_dump($datosFinales["pass"]);
@@ -97,14 +145,15 @@ class Validator {
 		echo "<br>";
 		var_dump($hola);
 		exit; */
-
-		$passDB = $usuario->getPass();
 		
-
+		if ($usuario=== NULL){
+			$errores["pass"]= "El usuario no se encuentra registrado. Por favor, regístrese.";
+		} else{
+			$passDB = $usuario->getPass();
 			if (!password_verify($datosFinales["pass"], $passDB)){
 				$errores["pass"]= "La contraseña es incorrecta.";
 			}
-	
+		}
 		return $errores;
 	}
 

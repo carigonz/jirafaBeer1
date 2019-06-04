@@ -1,6 +1,6 @@
 <?php
 
-require_once "funciones.php";
+//require_once "funciones.php";
 require_once "classes/validator.php";
 require_once "ini.php";
 //require_once "classes/usuario.php";
@@ -34,17 +34,17 @@ if ($_POST) {
   if (!empty($_POST["register"])) {
     
     $errores = Validator::validarRegistro($_POST);
-    //var_dump($errores);
+    var_dump($errores);
     //exit;
     $nameOk = trim($_POST["name"]);
     $lastNameOk = trim($_POST["lastName"]);
     $emailOk = trim($_POST["email"]);
-
+      var_dump($nameOk);
     if (empty($errores)){
 
       //var_dump($_POST["email"]);
       //echo "<br>";
-      //$quepaso =$dbMysql->existeElusuario($_POST["email"]);
+      $quepaso =$dbMysql->existeElusuario($_POST["email"]);
       //var_dump($quepaso);
       //exit;
 
@@ -60,8 +60,8 @@ if ($_POST) {
 
         //logueo al usuario
         //$usuario= buscarUsuario($_POST["email"]); esta linea no se porque esta acá
-        //hay que inicializar init.php con dbMysqul y auth asi esta en un archivo
-        $auth->loguearUsuario($_POST["email"]);
+
+        $auth->loguearUsuario($usuario);
         //var_dump($usuario);
         //redirijo
         header("Location:exito.php");
@@ -81,7 +81,7 @@ if ($_POST) {
 
     if (empty($errores)){
       $usuario= $dbMysql->buscarUsuario($_POST["email"]);
-      //var_dump($usuario);
+      
       //var_dump($_POST);
       //var_dump($usuario);
       //exit;
@@ -127,10 +127,11 @@ if ($_POST) {
         <label for="abrir-cerrar"><a href="#home" class="btn-home">Login</a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
         <div id="sidebar" class="sidebar">
             <ul class="menu">
-                <li><a href="index.php#section-nosotros">nosotros</a></li>
-                <li><a href="index.php#section-estilos">estilos</a></li>
-                <li><a href="contact.php">contacto</a></li>
-                <li><a href="index.php">home</a></li>
+              <li><a href="index.php">home</a></li>
+              <li><a href="index.php#section-nosotros">nosotros</a></li>
+              <li><a href="index.php#section-estilos">estilos</a></li>
+              <li><a href="contact.php">contacto</a></li>
+              <li><a href="exito.php">perfil</a></li>
               <?php if ($auth->usuarioLogueado()):?>
                 <li><a href="logout.php"><?= $logout?></a>
                 <span class="welcome" style="padding: 14.5px 16px; float: right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
@@ -142,23 +143,23 @@ if ($_POST) {
     </header>
     <main>
       <div id="contenido">
-        <section class="landing" id="home">
+        <!-- <section class="landing" id="home">
             <div class="bloque-home">
                 <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video>
                 <div class="landing">
                     <img class="logo-landing-img" src="IMG\jirafa-brew-house-logo.png" alt="jirafa-logo">
                 </div>
             </div>
-        </section>
-       <section id="section-nosotros">
+        </section> -->
+       <!-- <section id="section-nosotros">
             <div class="nosotros">
                 <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <em>cerveza de garage</em>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
                 <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p>
             </div>
-      </section> 
+      </section>  -->
 
         <!-- categorias o estilos de cerveza -->
-        <section class="section-estilos" id="section-estilos">
+        <!-- <section class="section-estilos" id="section-estilos">
           <h1 class="title-princ">ESTILOS</h1>
             <article class="estilo">
               <div class="photo-container">
@@ -196,7 +197,7 @@ if ($_POST) {
                   <p class="title">Cervezas doradas reserva en barriles de whisky.</p>
               </div>
             </article>
-        </section>
+        </section>-->
 
         <?php if (!$auth->usuarioLogueado()):?>
           <section id="section-contact">
@@ -237,21 +238,21 @@ if ($_POST) {
                   <h1 id="section-register">REGISTRATE</h1>
                   <h3>¿No tenes cuenta? Completá tus datos</h3>
               <form action="#section-register" method="POST" class="tarjets">
-                <?php if (isset($_POST["email"]) && existeElUsuario($_POST["email"])):?>
+                <?php if (isset($_POST["email"]) && $dbMysql->existeElUsuario($_POST["email"])):?>
                   <span class="errores"><?= $usuarioExistente ?></span>
                 <?php endif ?>
-                  <?php if (isset($errores["name"])):?>
+                  <?php //if (isset($errores["name"])):?>
                     <div class="form-group">
                       <label for="name">Nombre</label>
-                      <input type="text" class="form-control" id="name" name="name" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
-                      <span class="errores"><?= $errores["name"] ?></span>
+                      <input type="text" class="form-control" id="name" name="name" value="<?php isset($errores["name"]) ? "" : $nameOk ;?>" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
+                      <span class="errores"><?= isset($errores["name"]) ? $errores["name"] : "" ?></span>
                     </div>
-                  <?php else :?>
-                    <div class="form-group">
+                  <?php //else :?>
+                    <!-- <div class="form-group">
                       <label for="name">Nombre</label>
-                      <input type="text" class="form-control" id="name" name="name" value="<?= $nameOk?>">
-                    </div>
-                  <?php endif ?>
+                      <input type="text" class="form-control" id="name" name="name" value=//$nameO">
+                    </div> -->
+                  <?php //endif ?>
                   <?php if (isset($errores["lastName"])):?>
                     <div class="form-group">
                         <label for="lastName">Apellido</label>

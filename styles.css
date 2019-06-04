@@ -46,8 +46,9 @@ header {
   float: right;
   border: none;
   color: #ffbb37;
-  padding: 11.5px 16px;
+  padding: 14.5px 16px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .btn-home:hover {
@@ -71,10 +72,12 @@ label[for="abrir-cerrar"] {
   margin: 14px 16px;
   display: inline-block;
   color: #ffbb37;
-  font-weight: 800;
+  font-weight: bold;
 }
 .cerrar {
   display: none;
+  color: #ffbb37;
+  font-weight: bold;
 }
 
 #sidebar {

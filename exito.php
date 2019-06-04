@@ -2,8 +2,13 @@
 
 //require_once "funciones.php";
 require_once "ini.php";
+require_once "classes/validator.php";
 
-var_dump($_SESSION["email"]);
+//var_dump($_SESSION);
+if (!isset($_SESSION)){
+  header("Location:exito.php");
+  exit;
+}
 
 $usuario = $dbMysql->traerUsuarioLogueado();
 
@@ -24,11 +29,12 @@ $login="login";
 //exit;
 
 if ($_POST){
-  var_dump($_POST);
-  exit;
-  $errores=actualizarRegistro($_POST);
 
-  //var_dump($errores);
+  //var_dump($_POST);
+  $errores=Validator::actualizarRegistro($_POST);
+
+  var_dump($errores);
+  //exit;
 }
 
 ?>
@@ -46,18 +52,19 @@ if ($_POST){
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header class="nav-header"> 
+    <header class="nav-header">
         <input type="checkbox" id="abrir-cerrar" name="abrir-cerrar" value="">
-        <label for="abrir-cerrar"><a href="#home" class="btn-home">logout</a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
+        <label for="abrir-cerrar"><a href="#home" class="btn-home">Login</a><span class="abrir">&#9776;</span><span class="cerrar">&#9776; Cerrar</span></label>
         <div id="sidebar" class="sidebar">
             <ul class="menu">
-                <li><a href="index.php#section-nosotros">nosotros</a></li>
-                <li><a href="index.php#section-estilos">estilos</a></li>
-                <li><a href="contact.php">contacto</a></li>
-                <li><a href="index.php">home</a></li>
+              <li><a href="index.php">home</a></li>
+              <li><a href="index.php#section-nosotros">nosotros</a></li>
+              <li><a href="index.php#section-estilos">estilos</a></li>
+              <li><a href="contact.php">contacto</a></li>
+              <li><a href="exito.php">perfil</a></li>
               <?php if ($auth->usuarioLogueado()):?>
                 <li><a href="logout.php"><?= $logout?></a>
-                <span class="welcome" style="padding: 14.5px 16px; float:right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
+                <span class="welcome" style="padding: 14.5px 16px; float: right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
               <?php else:?>
                   <li><a href="#section-forms"><?= $login?></a></li>
               <?php endif?>
