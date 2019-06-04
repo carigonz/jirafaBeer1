@@ -1,5 +1,4 @@
 <?php
-
 //require_once "funciones.php";
 require_once "classes/validator.php";
 require_once "ini.php";
@@ -131,8 +130,8 @@ if ($_POST) {
               <li><a href="index.php#section-nosotros">nosotros</a></li>
               <li><a href="index.php#section-estilos">estilos</a></li>
               <li><a href="contact.php">contacto</a></li>
-              <li><a href="exito.php">perfil</a></li>
               <?php if ($auth->usuarioLogueado()):?>
+                <li><a href="exito.php">perfil</a></li>
                 <li><a href="logout.php"><?= $logout?></a>
                 <span class="welcome" style="padding: 14.5px 16px; float: right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
               <?php else:?>

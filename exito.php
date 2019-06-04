@@ -33,7 +33,7 @@ if ($_POST){
   //var_dump($_POST);
   $errores=Validator::actualizarRegistro($_POST);
 
-  var_dump($errores);
+  //var_dump($errores);
   //exit;
 }
 
@@ -61,8 +61,8 @@ if ($_POST){
               <li><a href="index.php#section-nosotros">nosotros</a></li>
               <li><a href="index.php#section-estilos">estilos</a></li>
               <li><a href="contact.php">contacto</a></li>
-              <li><a href="exito.php">perfil</a></li>
               <?php if ($auth->usuarioLogueado()):?>
+                <li><a href="exito.php">perfil</a></li>
                 <li><a href="logout.php"><?= $logout?></a>
                 <span class="welcome" style="padding: 14.5px 16px; float: right; color: #f90" >Bienvenide, <?= $nameOk?> !</span></li>
               <?php else:?>
