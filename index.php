@@ -15,6 +15,7 @@ $usuarioExistente="";
 $errorLogin=false;
 $logout= "logout";
 $login="login";
+$redBackground = "background-color:rgba(255,0,0,0.2); border-radius:10px";
 
 //var_dump($_POST);
 //echo "<br>";
@@ -33,12 +34,12 @@ if ($_POST) {
   if (!empty($_POST["register"])) {
     
     $errores = Validator::validarRegistro($_POST);
-    var_dump($errores);
+    //var_dump($errores);
     //exit;
     $nameOk = trim($_POST["name"]);
     $lastNameOk = trim($_POST["lastName"]);
     $emailOk = trim($_POST["email"]);
-      var_dump($nameOk);
+      //var_dump($nameOk);
     if (empty($errores)){
 
       //var_dump($_POST["email"]);
@@ -142,23 +143,23 @@ if ($_POST) {
     </header>
     <main>
       <div id="contenido">
-        <!-- <section class="landing" id="home">
+        <section class="landing" id="home">
             <div class="bloque-home">
                 <video class="background-video" poster="http://adnhd.com/wp-content/uploads/2018/10/0029462316.jpg" src="IMG/Loop-Background.mp4" autoplay loop muted></video>
                 <div class="landing">
                     <img class="logo-landing-img" src="IMG\jirafa-brew-house-logo.png" alt="jirafa-logo">
                 </div>
             </div>
-        </section> -->
-       <!-- <section id="section-nosotros">
+        </section>
+       <section id="section-nosotros">
             <div class="nosotros">
-                <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <em>cerveza de garage</em>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
+                <p class="paragraph-us"><h1 class="title-princ">Nosotros</h1>¡Hablemos de cervezas! Somos una cervecería que hace <i>cerveza de garage</i>, ¿Qué significa esto? Somos un emprendimiento de dos amigos que les gusta el mundo de la cerveza, tenemos nuestra fábrica en nuestro garage.. y muchas ganas de aprender. Las recetas de todas nuestras birras se encuentran en linea. ¿Estas comenzando y tenes dudas? <a style="color:#ffbb37" href="#section-contact">No dudes en contactarnos</a></p>
                 <p class="dektop-us">Una vez al mes hacemos una visita guiada por la fábrica acompañada de una pequeña cocción de unos 20 litros, allí compartimos nuestros conocimientos, aprendemos de ustedes, y les contamos nuestra experiencia.</p>
             </div>
-      </section>  -->
+      </section> 
 
         <!-- categorias o estilos de cerveza -->
-        <!-- <section class="section-estilos" id="section-estilos">
+        <section class="section-estilos" id="section-estilos">
           <h1 class="title-princ">ESTILOS</h1>
             <article class="estilo">
               <div class="photo-container">
@@ -196,7 +197,7 @@ if ($_POST) {
                   <p class="title">Cervezas doradas reserva en barriles de whisky.</p>
               </div>
             </article>
-        </section>-->
+        </section>
 
         <?php if (!$auth->usuarioLogueado()):?>
           <section id="section-contact">
@@ -205,34 +206,26 @@ if ($_POST) {
                 <h1>LOGIN</h1>
                 <form action="#section-forms" method="post" class="tarjets ">
                   <div class="form-group">
-                  <?php if(isset($errorLogin)):?>
-                    <span class="errores"><?= $errorLogin ?></span>
-                  <?php endif?>
+                    <span class="errores"><?= (isset($errorLogin)) ? $errorLogin : "" ?></span>
 
                     <label for="email">Email</label>
-                  <?php if(isset($errores["email"]) && (!empty($_POST["login"]))):?>
-                    <input type="email" class="form-control" id="email" style="background-color:rgba(255,0,0,0.2); border-radius:10px" name="email" aria-describedby="emailHelp">
-                    <span class="errores"><?= $errores["email"] ?></span>
-                  <?php else:?>
-                    <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
-                  <?php endif ?>
+                    <input type="email" class="form-control" id="email" value="<?= (isset($errores["email"]) && (!empty($_POST["login"]))) ? "" : $emailOk ?>" style="<?= (isset($errores["email"]) && (!empty($_POST["login"]))) ? $redBackground : "" ?>" name="email" aria-describedby="emailHelp">
+                    <span class="errores"><?= (isset($errores["email"]) && (!empty($_POST["login"]))) ? $errores["email"] : "" ?></span>
                   </div>
+
                   <div class="form-group">
                     <label for="pass">Password</label>
-                  <?php if(isset($errores["pass"]) && (!empty($_POST["login"]))):?>
-                    <input type="password" class="form-control" id="pass" style="background-color:rgba(255,0,0,0.2); border-radius:10px" name="pass" aria-describedby="forgotPass">
-                    <span class="errores"><?= $errores["pass"] ?></span>
-                    <p><a class="forgot-pass" href="">Olvidé mi contraseña</a></p>
-                  <?php else :?>
-                  <input type="password" class="form-control" id="pass" name="pass" aria-describedby="forgotPass">
-                    <p><a class="forgot-pass" href="">Olvidé mi contraseña</a></p>
-                  <?php endif ?>
+                    <input type="password" class="form-control" id="pass" value="<?= (isset($errores["pass"]) && (!empty($_POST["login"]))) ? "" : $emailOk ?>" style="<?= (isset($errores["pass"]) && (!empty($_POST["login"]))) ? $redBackground : "" ?>" name="pass" aria-describedby="forgotPass">
+                    <span class="errores"><?= (isset($errores["pass"]) && (!empty($_POST["login"]))) ? $errores["pass"] : "" ?></span>
+                    <p><a class="forgot-pass" href="#">Olvidé mi contraseña</a></p>
                   </div>
+
                   <button type="submit" class="btn-standard" value="login" name="login">Ingresar</button>
                   <div class="form-check">
                     <input type="checkbox" value="remember" class="form-check-input" name="remember" id="remember">
                     <label class="form-check-label" for="remember">Recordarme</label>
                   </div>
+
                 </form>
                   <h1 id="section-register">REGISTRATE</h1>
                   <h3>¿No tenes cuenta? Completá tus datos</h3>
@@ -240,33 +233,22 @@ if ($_POST) {
                 <?php if (isset($_POST["email"]) && $dbMysql->existeElUsuario($_POST["email"])):?>
                   <span class="errores"><?= $usuarioExistente ?></span>
                 <?php endif ?>
-                  <?php //if (isset($errores["name"])):?>
+
                     <div class="form-group">
                       <label for="name">Nombre</label>
-                      <input type="text" class="form-control" id="name" name="name" value="<?php isset($errores["name"]) ? "" : $nameOk ;?>" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
+                      <input type="text" class="form-control" id="name" name="name" value="<?= isset($errores["name"]) ? "" : $nameOk ?>" style="<?= (isset($errores["name"])) ? $redBackground : "" ?>"> 
                       <span class="errores"><?= isset($errores["name"]) ? $errores["name"] : "" ?></span>
                     </div>
-                  <?php //else :?>
-                    <!-- <div class="form-group">
-                      <label for="name">Nombre</label>
-                      <input type="text" class="form-control" id="name" name="name" value=//$nameO">
-                    </div> -->
-                  <?php //endif ?>
-                  <?php if (isset($errores["lastName"])):?>
+
                     <div class="form-group">
                         <label for="lastName">Apellido</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
-                        <span class="errores"><?= $errores["lastName"] ?></span>
+                        <input type="text" class="form-control" id="lastName" name="lastName" value="<?= isset($errores["lastName"]) ? "" : $lastNameOk ?>" style="<?= isset($errores["lastName"]) ? $redBackground : "" ?>">
+                        <span class="errores"><?= isset($errores["lastName"]) ? $errores["lastName"] : "" ?></span>
                     </div>
-                  <?php else: ?>
-                    <div class="form-group">
-                        <label for="lastName">Apellido</label>
-                        <input type="text" class="form-control" id="lastName" name="lastName" value="<?=$lastNameOk?>">
-                    </div>
-                  <?php endif ?>
+
                     <div class="form-group">
                     <label for="gender">Género:</label><br>
-                    <?php if(isset($errores["gender"]) && $errores["gender"]=="fem"):?>
+                    <?php if(isset($errores["gender"]) && $_POST["gender"]=="fem"):?>
                       <input type="radio" name="gender" value="fem" checked>Femenino
                     <?php else:?>
                       <input type="radio" name="gender" value="fem">Femenino
@@ -286,50 +268,28 @@ if ($_POST) {
                   <?php endif?>
                     </div>
 
-                  <?php if(isset($errores["email"]) && (!empty($_POST["register"]))):?>
                     <div class="form-group">
                       <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" style="background-color:rgba(255,0,0,0.2); border-radius:10px">
-                      <span class="errores"><?= $errores["email"] ?></span>
+                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?= (isset($errores["email"]) && (!empty($_POST["register"]))) ? "" : $emailOk ?>" style="<?= (isset($errores["email"]) && (!empty($_POST["register"]))) ? $redBackground : "" ?>">
+                      <span class="errores"><?= (isset($errores["email"]) && (!empty($_POST["register"]))) ? $errores["email"] : "" ?></span>
                     </div>
-                  <?php else:?>
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?= $emailOk?>">
-                    </div>
-                  <?php endif?>
-                  <?php if(isset($errores["pass"]) && (!empty($_POST["register"]))):?>
+
                     <div class="form-group">
                       <label for="pass">Contraseña</label>
-                      <input type="password" class="form-control" id="pass" name="pass" maxlength="20" style="background-color:rgba(255,0,0,0.2); border-radius:10px" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
-                      <span class="errores"><?= $errores["pass"] ?></span>
+                      <input type="password" class="form-control" id="pass" name="pass" maxlength="20" style="<?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $redBackground : "" ?>" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
+                      <span class="errores"><?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $errores["pass"] : "" ?></span>
                     </div>
                     <div class="form-group">
                       <label for="pass2">Repetí la contraseña</label>
-                      <input type="password" class="form-control" id="pass2" name="pass2" maxlength="20" style="background-color:rgba(255,0,0,0.2); border-radius:10px" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
-                      <span class="errores"><?= $errores["pass"] ?></span>
+                      <input type="password" class="form-control" id="pass2" name="pass2" maxlength="20" style="<?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $redBackground : "" ?>" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
+                      <span class="errores"><?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $errores["pass"] : "" ?></span>
                     </div>
-                  <?php else:?>
-                    <div class="form-group">
-                      <label for="pass">Contraseña</label>
-                      <input type="password" class="form-control" id="pass" name="pass" maxlength="20" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
-                    </div>
-                    <div class="form-group">
-                      <label for="pass2">Repetí la contraseña</label>
-                      <input type="password" class="form-control" id="pass2" name="pass2" maxlength="20" tabindex="17" autocapitalize="none" spellcheck="false" autocorrect="off" autocomplete="off" data-uid="5">
-                    </div>
-                  <?php endif?>
+
                     <div class="form-group form-adult">
-                    <?php if(isset($errores["adult"])):?>
                         <input type="checkbox" name="adult" class="form-check-adult" id="adult" value="adult">
-                      <?php else:?>
-                        <input type="checkbox" name="adult" class="form-check-adult" id="adult" value="adult">
-                    <?php endif?>
                         <label class="form-check-label" for="adult">Soy mayor de 18 años</label>
                         <p class="term-conditions">Al registrarme, declaro que soy mayor de edad y acepto los Terminos y condiciones y las Políticas de privacidad.</p>
-                    <?php if(isset($errores["adult"])):?>
-                        <span class="errores"><?= $errores["adult"] ?></span>
-                    <?php endif?>
+                        <span class="errores"><?= (isset($errores["adult"])) ? $errores["adult"] : "" ?></span>
                     </div>
                     <button type="submit" name="register" value="register" class="btn-standard">Registrarme</button>
                   </form>

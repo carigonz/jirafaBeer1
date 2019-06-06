@@ -566,7 +566,7 @@ a:hover {
     height: auto;
     padding: 0;
     border-radius: 0 0 10px 10px;
-    background-color: rgba(238, 238, 238, 0.8);
+    background-color: rgba(238, 238, 238, 0.95);
   }
   .sidebar ul {
     margin: 0;
