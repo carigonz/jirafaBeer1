@@ -17,8 +17,7 @@ CREATE  TABLE IF NOT EXISTS `beerdb`.`users` (
   `pass` VARCHAR(255) NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) ,
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
-ENGINE = MariaDB;
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC));
 
 
 -- -----------------------------------------------------
@@ -29,8 +28,7 @@ CREATE  TABLE IF NOT EXISTS `beerdb`.`styles` (
   `name` VARCHAR(45) NULL ,
   `description` VARCHAR(45) NULL ,
   `image` VARCHAR(45) NULL ,
-  PRIMARY KEY (`id`) )
-ENGINE = MariaDB;
+  PRIMARY KEY (`id`) );
 
 
 -- -----------------------------------------------------
@@ -40,8 +38,7 @@ CREATE  TABLE IF NOT EXISTS `beerdb`.`presentation` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `measure` MEDIUMINT NULL ,
   PRIMARY KEY (`id`) ,
-  UNIQUE INDEX `measure_UNIQUE` (`measure` ASC) )
-ENGINE = MariaDB;
+  UNIQUE INDEX `measure_UNIQUE` (`measure` ASC) );
 
 
 -- -----------------------------------------------------
@@ -67,8 +64,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`products` (
     FOREIGN KEY (`presentation_id` )
     REFERENCES `beerdb`.`presentation` (`id` )
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = MariaDB;
+    ON UPDATE NO ACTION);
 
 
 -- -----------------------------------------------------
@@ -96,8 +92,7 @@ CREATE  TABLE IF NOT EXISTS `beerdb`.`orders` (
     FOREIGN KEY (`product_id` )
     REFERENCES `beerdb`.`products` (`id` )
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = MariaDB;
+    ON UPDATE NO ACTION);
 
 USE `beerdb` ;
 
