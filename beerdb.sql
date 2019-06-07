@@ -44,10 +44,11 @@ CREATE  TABLE IF NOT EXISTS `beerdb`.`presentation` (
 -- -----------------------------------------------------
 -- Table `beerdb`.`products`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`products` (
+CREATE  TABLE IF NOT EXISTS `beerdb`.`products` (
   `id` INT NOT NULL ,
+  `description` VARCHAR(255) NOT NULL,
   `style_id` INT NULL ,
-  `presentation_id` INT NULL ,
+  `presentation_id` TINYINT NULL ,
   `stock` MEDIUMINT NULL ,
   `price` VARCHAR(45) NULL ,
   `merchandising` VARCHAR(255) NULL ,
