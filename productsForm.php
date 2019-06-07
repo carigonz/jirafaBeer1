@@ -98,64 +98,36 @@
              <input type="number" name="price" class="form-control" id="stock">
            </div>
 
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" class="form-control" id="email" name="email"
-              aria-describedby="emailHelp" value="<?= (isset($errores["email"]) && (!empty($_POST["register"]))) ? "" : $emailOk ?>"
-              style="<?= (isset($errores["email"]) && (!empty($_POST["register"]))) ? $redBackground : "" ?>">
-              <span class="errores"
-                ><?= (isset($errores["email"]) && (!empty($_POST["register"]))) ? $errores["email"] : "" ?></span
-              >
-            </div>
+           <div class="form-group">
+             <label for="price">¿El producto corresponde a la categoría merchandising?</label><br>
+             <input type="radio" name="true" id="">Si
+             <input type="radio" name="false" id="">No
+           </div>
 
-            <div class="form-group">
-              <label for="pass">Contraseña</label>
-              <input type="password" class="form-control" id="pass" name="pass"
-              maxlength="20" style="<?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $redBackground : "" ?>"
-              tabindex="17" autocapitalize="none" spellcheck="false"
-              autocorrect="off" autocomplete="off" data-uid="5">
-              <span class="errores"
-                ><?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $errores["pass"] : "" ?></span
-              >
-            </div>
-            <div class="form-group">
-              <label for="pass2">Repetí la contraseña</label>
-              <input type="password" class="form-control" id="pass2"
-              name="pass2" maxlength="20" style="<?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $redBackground : "" ?>"
-              tabindex="17" autocapitalize="none" spellcheck="false"
-              autocorrect="off" autocomplete="off" data-uid="5">
-              <span class="errores"
-                ><?= (isset($errores["pass"]) && (!empty($_POST["register"]))) ? $errores["pass"] : "" ?></span
-              >
-            </div>
-
-            <div class="form-group form-adult">
-              <input
-                type="checkbox"
-                name="adult"
-                class="form-check-adult"
-                id="adult"
-                value="adult"
-              />
-              <label class="form-check-label" for="adult"
-                >Soy mayor de 18 años</label
-              >
-              <p class="term-conditions">
-                Al registrarme, declaro que soy mayor de edad y acepto los
-                Terminos y condiciones y las Políticas de privacidad.
-              </p>
-              <span class="errores"
-                ><?= (isset($errores["adult"])) ? $errores["adult"] : "" ?></span
-              >
-            </div>
-            <button
-              type="submit"
-              name="register"
-              value="register"
-              class="btn-standard"
-            >
-              Registrarme
-            </button>
+           <div class="form-group">
+             <label for="presentation">Talle / Medida</label>
+             <select name="presentation" id="">
+               <option value="">elija una opción</option>
+               <optgroup label="remeras">
+                 <option value="s">S</option>
+                 <option value="m">M</option>
+                 <option value="l">L</option>
+                 <option value="xl">XL</option>
+               </optgroup>
+               <optgroup label="misc">
+                <option value="uniq">único</option>
+                <option value="nosize">No corresponde</option>
+                <option value=""></option>
+                <option value=""></option>
+               
+               </optgroup>
+             </select>
+           </div>
+           <div class="form-group">
+             <label for="image">Inserte imagen (se verá en la descripción)</label>
+             <input type="file" name="image" id="image">
+           </div>
+            <button type="submit" name="register" value="register" class="btn-standard">Registrarme</button>
           </form>
         </div>
       </div>
