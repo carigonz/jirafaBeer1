@@ -68,7 +68,7 @@ CREATE  TABLE IF NOT EXISTS `Giraff_Beer`.`products` (
 
 
 -- -----------------------------------------------------
--- Table `Giraff_Beer`.`orders`
+-- Table `beerdb`.`orders`
 -- -----------------------------------------------------
 CREATE  TABLE IF NOT EXISTS `beerdb`.`orders` (
   `id` INT NOT NULL AUTO_INCREMENT ,
