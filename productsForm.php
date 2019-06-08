@@ -10,31 +10,6 @@
   <body>
     <main>
       <div class="container">
-        <form action="#" method="post">
-          <fieldset>
-            <legend>Carga de Productos</legend>
-            <label for=""></label>
-            <input type="text" name="nombre" value="" />
-            <br />
-            Apellidos <br />
-            <input type="text" name="apellidos" value="" />
-            <br />
-            DNI <br />
-            <input type="text" name="dni" value="" size="10" maxlength="9" />
-          </fieldset>
-
-          <fieldset>
-            <legend>Datos de conexión</legend>
-            Nombre de usuario<br />
-            <input type="text" name="nombre" value="" maxlength="10" />
-            <br />
-            Contraseña<br />
-            <input type="password" name="password" value="" maxlength="10" />
-            <br />
-            Repite la contraseña<br />
-            <input type="password" name="password2" value="" maxlength="10" />
-          </fieldset>
-        </form>
 
         <div class="formulario">
           <h1 id="section-register">Formulario de carga de productos</h1>
@@ -53,9 +28,9 @@
               >
             </div>
 
-            <div class="form-group">
+            <div class="form-group description-product">
               <label for="lastName">Descripción (este campo se mostrará en las vistas del producto)</label>
-              <input type="text" class="form-control" id="lastName"
+              <input type="text" class="form-control " id="lastName"
               name="lastName" value="<?= isset($errores["lastName"]) ? "" : $lastNameOk ?>"
               style="<?= isset($errores["lastName"]) ? $redBackground : "" ?>">
               <span class="errores"
@@ -64,7 +39,7 @@
             </div>
 
            <div class="form-group">
-             <label for="style">Estilo de cerveza</label>
+             <label for="style">Estilo de cerveza </label>
              <select name="style" id="style" >
                <option selected value="0">elija un estilo</option>
                <optgroup label="Cervezas Ales">
@@ -76,7 +51,7 @@
            </div>
 
            <div class="form-group">
-             <label for="presentation">Presentación (volumen)</label>
+             <label for="presentation">Presentación (volumen) </label>
              <select name="presentation" id="">
                <option value="">elija una presentación</option>
                <optgroup label="cervezas">
@@ -88,13 +63,13 @@
            </div>
 
 
-           <div class="form-group">
-             <label for="stock">Stock disponible para cargar</label>
+           <div class="form-group num-stock">
+             <label for="stock">Stock disponible para cargar </label>
              <input type="number" name="stock" class="form-control" id="stock">
            </div>
 
-           <div class="form-group">
-             <label for="price">Precio por unidad</label>
+           <div class="form-group num-stock">
+             <label for="price">Precio por unidad </label>
              <input type="number" name="price" class="form-control" id="stock">
            </div>
 
@@ -105,7 +80,7 @@
            </div>
 
            <div class="form-group">
-             <label for="presentation">Talle / Medida</label>
+             <label for="presentation">Talle / Medida </label>
              <select name="presentation" id="">
                <option value="">elija una opción</option>
                <optgroup label="remeras">
@@ -124,10 +99,10 @@
              </select>
            </div>
            <div class="form-group">
-             <label for="image">Inserte imagen (se verá en la descripción)</label>
+             <label for="image">Inserte imagen (se verá en la descripción) </label>
              <input type="file" name="image" id="image">
            </div>
-            <button type="submit" name="register" value="register" class="btn-standard">Registrarme</button>
+            <button type="submit" name="register" value="register" class="btn-standard">Cargar</button>
           </form>
         </div>
       </div>

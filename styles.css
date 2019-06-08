@@ -547,6 +547,17 @@ a:hover {
   opacity: 0.7;
 }
 
+/* seccion carga de productos */
+
+.num-stock {
+  width: 70px;
+  display: inline-block;
+  border: #faa914 1px solid;
+}
+.description-product {
+  border: #faa914 1px solid;
+}
+
 @media only screen and (min-width: 768px) {
   /* navbar */
 
