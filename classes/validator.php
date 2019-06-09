@@ -216,12 +216,15 @@ class Validator {
 			$errores["avatar"] = "No se seleccionó archivo.";
 		} elseif($_FILES["avatar"]["error"]!==0){
 			$errores["avatar"] = "Hubo un error en la subida del archivo";
-		} else{
+		} else {
 			//chequear que sea un archivo con la extensión deseada;
 			$ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
-			if($ext!== "jpg"){
+			if($ext!== "jpg" && $ext!== "jpeg" && $ext!== "png"){
 				$errores["avatar"]= "El archivo debe ser de tipo jpg, jpeg o png";
+			} else {
+				//donde cuernos guardo la imagen? jaja
 			}
+
     }
 
 		return $errores;
