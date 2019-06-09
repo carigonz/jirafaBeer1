@@ -157,6 +157,76 @@ class Validator {
 		return $errores;
 	}
 
+	public function validarProducto($array){
+		$errores =[];
+		$datos=[];
+		global $dbMysql;
+
+		foreach ($array as $position => $valor){
+			$datos[$position]=trim($valor);
+		}
+	
+		//nombre del producto
+		if(strlen($datos["name"]) == 0){
+			$errores["name"] = "Campo obligatorio.";
+		} 
+	
+		//description
+		if(strlen($datos["description"]) == 0){
+			$errores["description"] = "Campo obligatorio.";
+		} 
+	
+		//style
+		if(!isset($datos["style"])){
+			$errores["style"]="Por favor, elija una opción.";
+		}
+
+		//presentation
+		if(!isset($datos["presentation"])){
+			$errores["presentation"]="Por favor, elija una opción.";
+		}
+	
+		//stock
+		if(!isset($datos["stock"])){
+			$errores["stock"]="Campo obligatorio.";
+		} elseif ($datos["stock"]<1) {
+			$errores["stock"]="Ingrese número de stock a cargar.";
+		} 
+
+		//price
+		if(!isset($datos["price"])){
+			$errores["price"]="Campo obligatorio. Ingrese el precio por unidad";
+		} elseif ($datos["stock"]<1) {
+			$errores["price"]="Ingrese precio válido.";
+		} 
+
+		//merchardising
+		if(!isset($datos["merchand"])){
+			$errores["merchand"]="Campo obligatorio.";
+		} 
+
+		//size
+		if(!isset($datos["size"])){
+			$errores["size"]="Campo obligatorio. Elija una opción";
+		} 
+
+		//validar imagen
+      //var_dump($_FILES);
+		if($_FILES["avatar"]["name"] == ""){
+			$errores["avatar"] = "No se seleccionó archivo.";
+		} elseif($_FILES["avatar"]["error"]!==0){
+			$errores["avatar"] = "Hubo un error en la subida del archivo";
+		} else{
+			//chequear que sea un archivo con la extensión deseada;
+			$ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
+			if($ext!== "jpg"){
+				$errores["avatar"]= "El archivo debe ser de tipo jpg, jpeg o png";
+			}
+    }
+
+		return $errores;
+	}
+	
 }
 
 //$_POST["email"]= "carolinagonzalez794@gmail.com";

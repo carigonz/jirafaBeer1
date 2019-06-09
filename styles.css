@@ -556,6 +556,7 @@ a:hover {
 }
 .description-product {
   border: #faa914 1px solid;
+  height: 80px;
 }
 
 @media only screen and (min-width: 768px) {
