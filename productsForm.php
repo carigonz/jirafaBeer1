@@ -9,8 +9,8 @@ $lastNameOk="";
 
 $redBackground = "background-color:rgba(255,0,0,0.2); border-radius:10px";
 
-var_dump($_POST);echo "<br>";
-var_dump($_FILES);exit;
+var_dump($_POST);echo "<br>";echo "<br>";
+var_dump($_FILES);
 //echo "<br>";
 
 if ($_POST){
@@ -19,19 +19,6 @@ if ($_POST){
 
   //var_dump($errores);exit;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -51,7 +38,7 @@ if ($_POST){
         <div class="formulario">
           <h1 id="section-register">Formulario de carga de productos</h1>
           <h3>Por favor complete los datos para la carga del nuevo producto</h3>
-          <form action="#section-register" method="POST" class="tarjets">
+          <form action="#section-register" method="POST" class="tarjets" enctype="multipart/form-data">
             <?php if (isset($_POST["email"]) && $dbMysql->existeElUsuario($_POST["email"])):?>
             <span class="errores"><?= $usuarioExistente ?></span>
             <?php endif ?>
@@ -100,13 +87,13 @@ if ($_POST){
 
            <div class="form-group">
              <label for="stock">Stock disponible para cargar </label>
-             <input type="number" name="stock" class="form-control num-stock" id="stock">
+             <input type="number" name="stock" style="<?= (isset($errores["stock"])) ? $redBackground : "" ?>" class="form-control num-stock" id="stock">
              <span class="errores"><?= isset($errores["stock"]) ? $errores["stock"] : "" ?></span>
            </div>
 
            <div class="form-group">
              <label for="price">Precio por unidad </label>
-             <input type="number" name="price" class="form-control num-stock" id="price">
+             <input type="number" name="price" style="<?= (isset($errores["price"])) ? $redBackground : "" ?>" class="form-control num-stock" id="price">
              <span class="errores"><?= isset($errores["price"]) ? $errores["price"] : "" ?></span>
            </div>
 
@@ -142,7 +129,7 @@ if ($_POST){
              <input type="file" name="avatar" id="avatar">
              <span class="errores"><?= isset($errores["avatar"]) ? $errores["avatar"] : "" ?></span>
            </div>
-            <button type="submit" name="register" value="register" class="btn-standard">Cargar</button>
+            <button type="submit" name=""  class="btn-standard">Cargar</button>
           </form>
         </div>
       </div>
